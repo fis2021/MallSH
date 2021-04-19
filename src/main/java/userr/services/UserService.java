@@ -2,6 +2,7 @@ package userr.services;
 
 
 
+import userr.exceptions.FieldNotCompletedException;
 import userr.exceptions.UsernameAlreadyExistsException;
 import userr.model.User;
 import org.dizitart.no2.Nitrite;
@@ -29,14 +30,22 @@ public class UserService {
     }
 
     public static void addUser(String username, String password, String passwordconfirm, String firstname,
-                               String secondname, String phonenumber, String address)  throws UsernameAlreadyExistsException {
+                               String secondname, String phonenumber, String address)  throws UsernameAlreadyExistsException,FieldNotCompletedException {
         checkUserDoesNotAlreadyExist(username);
+        checkAllFieldCompleted(username, password, firstname, passwordconfirm, secondname,phonenumber);
         userRepository.insert(new User(username, encodePassword(username, password),encodePassword(username, passwordconfirm), firstname, secondname, phonenumber, address));
     }
     public static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
         for (User user : userRepository.find()) {
             if (Objects.equals(username, user.getUsername()))
                 throw new UsernameAlreadyExistsException(username);
+        }
+    }
+    public static void checkAllFieldCompleted(String username, String password, String firstname, String passwordconfirm,
+                                              String secondname, String phonenumber) throws FieldNotCompletedException {
+        if (username.trim().isEmpty() || password.trim().isEmpty()|| firstname.trim().isEmpty()||
+                passwordconfirm.trim().isEmpty()|| phonenumber.trim().isEmpty()|| secondname.trim().isEmpty()) {
+            throw new FieldNotCompletedException();
         }
     }
 

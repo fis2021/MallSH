@@ -11,6 +11,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import userr.exceptions.FieldNotCompletedException;
 import userr.exceptions.UsernameAlreadyExistsException;
 import userr.services.UserService;
 
@@ -55,6 +56,19 @@ public class RegistrationController {
             registrationMessage.setText(e.getMessage());
             passwordField.clear();
             passwordconfirmField.clear();
+        }catch (FieldNotCompletedException e) {
+            registrationMessage.setText(e.getMessage());
+            passwordField.clear();
+            passwordconfirmField.clear();
         }
+    }
+    public void minimizeWindow(javafx.event.ActionEvent min) {
+        Stage window = (Stage) ((Node) min.getSource()).getScene().getWindow();
+        window.setIconified(true);
+    }
+
+    public void closeWindow(javafx.event.ActionEvent close) {
+        Stage window = (Stage) ((Node) close.getSource()).getScene().getWindow();
+        window.close();
     }
 }
