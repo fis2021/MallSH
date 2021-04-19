@@ -9,13 +9,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import userr.exceptions.FieldNotCompletedException;
+import userr.exceptions.PasswordConfirmationException;
 import userr.exceptions.UsernameAlreadyExistsException;
+import userr.exceptions.WeakPasswordException;
 import userr.services.UserService;
+import javafx.scene.image.ImageView;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 public class RegistrationController {
     private double xOffset = 0;
@@ -36,6 +43,12 @@ public class RegistrationController {
     TextField phonenumberField;
     @FXML
     TextField addressField;
+    @FXML
+    public File file;
+    @FXML
+    public String path ;
+    @FXML
+    ImageView photoPath;
 
 
     @FXML
@@ -43,7 +56,7 @@ public class RegistrationController {
         try {
             UserService.addUser(usernameField.getText(), passwordField.getText(), passwordconfirmField.getText(),
                     firstnameField.getText(), secondnameField.getText(), phonenumberField.getText(),
-                    addressField.getText());
+                    addressField.getText(), path);
             registrationMessage.setText("Account created successfully!");
             usernameField.clear();
             passwordField.clear();
@@ -60,7 +73,33 @@ public class RegistrationController {
             registrationMessage.setText(e.getMessage());
             passwordField.clear();
             passwordconfirmField.clear();
+        }catch (WeakPasswordException e) {
+            registrationMessage.setText(e.getMessage());
+            passwordField.clear();
+            passwordconfirmField.clear();
+        }catch (PasswordConfirmationException e) {
+            registrationMessage.setText(e.getMessage());
+            passwordField.clear();
+            passwordconfirmField.clear();
         }
+    }
+    @FXML
+    void handleAddPhoto() throws MalformedURLException {
+        Stage stage = new Stage();
+        stage.setTitle("Add Photo");
+        FileChooser filechooser = new FileChooser();
+        filechooser.setInitialDirectory(new File("C:\\"));
+        filechooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("jpg files","*.jpg"));
+        file = filechooser.showOpenDialog(stage);
+        path = file.getAbsolutePath();
+        filechooser.setInitialDirectory(file.getParentFile());
+        File file = new File(path);
+        String localUrl = file.toURI().toURL().toExternalForm();
+        Image profile = new Image(localUrl, false);
+        photoPath.setImage(profile);
+        photoPath.setFitHeight(100);
+        photoPath.setFitWidth(150);
+        photoPath.rotateProperty();
     }
     public void minimizeWindow(javafx.event.ActionEvent min) {
         Stage window = (Stage) ((Node) min.getSource()).getScene().getWindow();

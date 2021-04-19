@@ -12,8 +12,9 @@ public class User {
     private String secondname;
     private String phonenumber;
     private String address;
+    private String photoPath;
 
-    public User(String username, String password,String passwordconfirm, String firstname,String secondname,String phonenumber,String address) {
+    public User(String username, String password,String passwordconfirm, String firstname,String secondname,String phonenumber,String address,String photoPath) {
         this.username = username;
         this.password = password;
         this.passwordconfirm = passwordconfirm;
@@ -21,6 +22,7 @@ public class User {
         this.secondname = secondname;
         this.phonenumber = phonenumber;
         this.address = address;
+        this.photoPath = photoPath;
     }
 
     public User() {
@@ -79,6 +81,10 @@ public class User {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public String getPhotoPath(){return photoPath;}
+
+    public void setPhotoPath(String photoPath){ this.photoPath = photoPath;}
 
     @Override
     public boolean equals(Object o) {

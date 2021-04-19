@@ -3,7 +3,9 @@ package userr.services;
 
 
 import userr.exceptions.FieldNotCompletedException;
+import userr.exceptions.PasswordConfirmationException;
 import userr.exceptions.UsernameAlreadyExistsException;
+import userr.exceptions.WeakPasswordException;
 import userr.model.User;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
@@ -30,10 +32,12 @@ public class UserService {
     }
 
     public static void addUser(String username, String password, String passwordconfirm, String firstname,
-                               String secondname, String phonenumber, String address)  throws UsernameAlreadyExistsException,FieldNotCompletedException {
+                               String secondname, String phonenumber, String address,String photoPath)  throws UsernameAlreadyExistsException,FieldNotCompletedException, WeakPasswordException, PasswordConfirmationException {
         checkUserDoesNotAlreadyExist(username);
         checkAllFieldCompleted(username, password, firstname, passwordconfirm, secondname,phonenumber);
-        userRepository.insert(new User(username, encodePassword(username, password),encodePassword(username, passwordconfirm), firstname, secondname, phonenumber, address));
+        checkPasswordformatException(password);
+        checkPasswordsMach(password, passwordconfirm);
+        userRepository.insert(new User(username, encodePassword(username, password),encodePassword(username, passwordconfirm), firstname, secondname, phonenumber, address, photoPath));
     }
     public static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
         for (User user : userRepository.find()) {
@@ -48,8 +52,28 @@ public class UserService {
             throw new FieldNotCompletedException();
         }
     }
+    public static void checkPasswordformatException(String password) throws WeakPasswordException {
+        if (password.length()<8)
+            throw new WeakPasswordException("8 characters");
+        if (!stringContainsNumber(password))
+            throw new WeakPasswordException("one digit");
+        if (!stringContainsUpperCase(password))
+            throw new WeakPasswordException("one upper case");
+    }
+    public static boolean stringContainsNumber(String s)
+    {
+        return Pattern.compile( "[0-9]" ).matcher( s ).find();
+    }
+    public static boolean stringContainsUpperCase(String s)
+    {
+        return Pattern.compile( "[A-Z]" ).matcher( s ).find();
+    }
 
-
+    public static void checkPasswordsMach(String password, String passwordconfirm) throws PasswordConfirmationException {
+        if (!password.trim().equals(passwordconfirm.trim())) {
+            throw new PasswordConfirmationException();
+        }
+    }
     private static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
