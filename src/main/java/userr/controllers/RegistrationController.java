@@ -65,24 +65,42 @@ public class RegistrationController {
             secondnameField.clear();
             phonenumberField.clear();
             addressField.clear();
+            clearProfilePicture();
         } catch (UsernameAlreadyExistsException e) {
             registrationMessage.setText(e.getMessage());
             passwordField.clear();
             passwordconfirmField.clear();
+            clearProfilePicture();
         }catch (FieldNotCompletedException e) {
             registrationMessage.setText(e.getMessage());
             passwordField.clear();
             passwordconfirmField.clear();
+            clearProfilePicture();
         }catch (WeakPasswordException e) {
             registrationMessage.setText(e.getMessage());
             passwordField.clear();
             passwordconfirmField.clear();
+            clearProfilePicture();
         }catch (PasswordConfirmationException e) {
             registrationMessage.setText(e.getMessage());
             passwordField.clear();
             passwordconfirmField.clear();
+            clearProfilePicture();
         }
     }
+
+    private void clearProfilePicture() throws MalformedURLException {
+        String pathUser = "src/main/resources/user_registration.png";
+        File file = new File(pathUser);
+        String localUrl = file.toURI().toURL().toExternalForm();
+        Image profile = new Image(localUrl, false);
+        photoPath.setLayoutY(113.0);
+        photoPath.setLayoutX(14.0);
+        photoPath.setFitWidth(112.0);
+        photoPath.setFitHeight(150.0);
+        photoPath.setImage(profile);
+    }
+
     @FXML
     void handleAddPhoto() throws MalformedURLException {
         Stage stage = new Stage();
@@ -101,6 +119,8 @@ public class RegistrationController {
         photoPath.setFitWidth(150);
         photoPath.rotateProperty();
     }
+
+
     public void minimizeWindow(javafx.event.ActionEvent min) {
         Stage window = (Stage) ((Node) min.getSource()).getScene().getWindow();
         window.setIconified(true);
