@@ -58,7 +58,16 @@ public class LoginController {
             passwordField.clear();
         }
     }
+    public void goBackToRegistration(javafx.event.ActionEvent register) throws IOException {
+        FXMLLoader Loader = new FXMLLoader();
+        Loader.setLocation(getClass().getClassLoader().getResource("user_registration.fxml"));
+        Parent viewuserRegister = Loader.load();
+        Scene Registerscene = new Scene(viewuserRegister, 650, 465);
+        Stage window = (Stage) ((Node) register.getSource()).getScene().getWindow();
+        window.setScene(Registerscene);
+        window.show();
 
+    }
     public static String getLoggedUsername(){return loggedUsername;}
     public void minimizeWindow(javafx.event.ActionEvent min) {
         Stage window = (Stage) ((Node) min.getSource()).getScene().getWindow();
