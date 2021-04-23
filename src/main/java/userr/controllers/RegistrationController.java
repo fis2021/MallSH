@@ -98,6 +98,16 @@ public class RegistrationController {
         }
     }
 
+    public void goBackToLogin(javafx.event.ActionEvent back) throws IOException {
+        FXMLLoader Loader = new FXMLLoader();
+        Loader.setLocation(getClass().getClassLoader().getResource("user_login.fxml"));
+        Parent viewuserLogin = Loader.load();
+        Scene Loginscene = new Scene(viewuserLogin, 650, 465);
+        Stage window = (Stage) ((Node) back.getSource()).getScene().getWindow();
+        window.setScene(Loginscene);
+        window.show();
+
+    }
     private void clearProfilePicture() throws MalformedURLException {
         String pathUser = "src/main/resources/user_registration.png";
         File file = new File(pathUser);
