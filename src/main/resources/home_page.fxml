@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userr.controllers.LoginController">
+<AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userr.controllers.HomepageController">
     <children>
         <Pane prefHeight="450.0" prefWidth="146.0" style="-fx-background-color: #20B2AA;">
             <children>
@@ -32,7 +32,7 @@
                         <Font name="Times New Roman" size="14.0" />
                     </font>
                 </Button>
-                <Button layoutX="6.0" layoutY="414.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Log Out" textFill="DARKSLATEGRAY">
+                <Button layoutX="6.0" layoutY="414.0" mnemonicParsing="false" onAction="#goBackToLogin" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Log Out" textFill="DARKSLATEGRAY">
                     <font>
                         <Font name="Times New Roman" size="14.0" />
                     </font>

@@ -39,7 +39,7 @@ public class LoginController {
     private static String loggedUsername;
 
     @FXML
-    public void handleLoginAction() throws IOException {
+    public void handleLoginAction(javafx.event.ActionEvent homepage) throws IOException {
         try {
             UserService.loginUser(usernameField.getText(), passwordField.getText());
             loginMessage.setText("Login successfully!");
@@ -47,6 +47,15 @@ public class LoginController {
                 if (Objects.equals(usernameField.getText(), user.getUsername())) {
                     this.loggedUsername = user.getUsername();
                 }
+            }
+            {
+                FXMLLoader Loader = new FXMLLoader();
+                Loader.setLocation(getClass().getClassLoader().getResource("home_page.fxml"));
+                Parent viewhomepage = Loader.load();
+                Scene homepagescene = new Scene(viewhomepage, 650, 450);
+                Stage window = (Stage) ((Node) homepage.getSource()).getScene().getWindow();
+                window.setScene(homepagescene);
+                window.show();
             }
 
         } catch (UsernameDoesNotExistsException e) {
