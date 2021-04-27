@@ -1,0 +1,8 @@
+.addphoto-button:hover {
+    -fx-background-color: white!important;
+    -fx-text-fill: #20B2AA;
+}
+.register-button:hover {
+    -fx-background-color: white!important;
+    -fx-text-fill: #20B2AA;
+}
