@@ -40,6 +40,15 @@ public class HomepageController {
         window.show();
 
     }
+    public void goToCreateAd(javafx.event.ActionEvent create) throws IOException {
+        FXMLLoader Loader = new FXMLLoader();
+        Loader.setLocation(getClass().getClassLoader().getResource("create_ad.fxml"));
+        Parent viewCreateAd = Loader.load();
+        Scene createAdscene = new Scene(viewCreateAd, 650, 450);
+        Stage window = (Stage) ((Node) create.getSource()).getScene().getWindow();
+        window.setScene(createAdscene);
+        window.show();
+    }
     public void minimizeWindow(javafx.event.ActionEvent min) {
         Stage window = (Stage) ((Node) min.getSource()).getScene().getWindow();
         window.setIconified(true);

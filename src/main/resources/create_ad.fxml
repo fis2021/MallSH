@@ -10,8 +10,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userr.controllers.AdController">
     <children>
         <Pane prefHeight="85.0" prefWidth="661.0" style="-fx-background-color: #20B2AA;">
             <children>
@@ -32,24 +33,24 @@
         </Pane>
         <HBox alignment="TOP_RIGHT" layoutX="450.0" prefHeight="35.0" prefWidth="200.0">
             <children>
-                <Button fx:id="minimizeField" contentDisplay="TOP" mnemonicParsing="false" prefHeight="27.0" prefWidth="24.0" style="-fx-background-color: transparent;" text="_" textFill="#1c1c1d">
+                <Button fx:id="minimizeField" contentDisplay="TOP" mnemonicParsing="false" onAction="#minimizeWindow" prefHeight="27.0" prefWidth="24.0" style="-fx-background-color: transparent;" text="_" textFill="#1c1c1d">
                     <font>
                         <Font name="System Bold" size="11.0" />
                     </font>
                 </Button>
-                <Button fx:id="closeField" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="13.0" prefWidth="25.0" style="-fx-background-color: transparent;" text="x" textAlignment="CENTER" textFill="#181819" textOverrun="CLIP">
+                <Button fx:id="closeField" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#closeWindow" prefHeight="13.0" prefWidth="25.0" style="-fx-background-color: transparent;" text="x" textAlignment="CENTER" textFill="#181819" textOverrun="CLIP">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Button>
             </children>
         </HBox>
-        <TextField layoutX="147.0" layoutY="97.0" prefHeight="45.0" prefWidth="494.0" promptText="*Title" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+        <TextField fx:id="titleField" layoutX="147.0" layoutY="97.0" prefHeight="45.0" prefWidth="494.0" promptText="*Title" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
             <font>
                 <Font name="Times New Roman" size="23.0" />
             </font>
         </TextField>
-        <Button layoutX="549.0" layoutY="389.0" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Create ad" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
+        <Button layoutX="549.0" layoutY="389.0" onAction="#handleCreateAdAction" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Create ad" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
             <font>
                 <Font name="Times New Roman" size="16.0" />
             </font>
@@ -60,36 +61,37 @@
             </font>
         </TextField>
         <Pane layoutY="85.0" prefHeight="12.0" prefWidth="661.0" style="-fx-background-color: #2F4F4F;" />
-        <ImageView fitHeight="140.0" fitWidth="112.0" layoutX="14.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="photoPath" fitHeight="115.0" fitWidth="119.0" layoutX="14.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@AdPhoto_logo.png" />
             </image>
         </ImageView>
-        <Button layoutX="28.0" layoutY="120.0" prefHeight="18.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="addphoto-button" stylesheets="@buttonstyle.css" text="Add picture" textAlignment="CENTER" textFill="DARKSLATEGRAY">
+        <Button layoutX="28.0" layoutY="120.0" onAction="#handleAddPhoto" prefHeight="18.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="addphoto-button" stylesheets="@buttonstyle.css" text="Add picture" textAlignment="CENTER" textFill="DARKSLATEGRAY">
             <font>
                 <Font name="Times New Roman" size="9.0" />
             </font>
         </Button>
-        <Button layoutX="14.0" layoutY="389.0" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Back" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
+        <Button layoutX="14.0" layoutY="389.0" onAction="#goBackToHomepage" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Back" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
             <font>
                 <Font name="Times New Roman" size="16.0" />
             </font>
         </Button>
         <HBox prefHeight="100.0" prefWidth="200.0" />
-        <CheckBox layoutX="169.0" layoutY="217.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="97.0" text="Appliances" />
-        <CheckBox layoutX="288.0" layoutY="217.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="85.0" text="Clothes" />
-        <CheckBox layoutX="392.0" layoutY="217.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="73.0" text="Cars" />
-        <CheckBox layoutX="487.0" layoutY="217.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="97.0" text="Furniture" />
+        <CheckBox fx:id="appliancesBox" layoutX="169.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleCheckBoxAction" prefHeight="17.0" prefWidth="97.0" text="Appliances" />
+        <CheckBox fx:id="clothesBox" layoutX="288.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleCheckBoxAction" prefHeight="17.0" prefWidth="85.0" text="Clothes" />
+        <CheckBox fx:id="carsBox" layoutX="392.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleCheckBoxAction" prefHeight="17.0" prefWidth="73.0" text="Cars" />
+        <CheckBox fx:id="furnitureBox" layoutX="487.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleCheckBoxAction" prefHeight="17.0" prefWidth="97.0" text="Furniture" />
       <HBox prefHeight="100.0" prefWidth="200.0" />
-      <TextField layoutX="155.0" layoutY="256.0" prefHeight="28.0" prefWidth="134.0" promptText="*Price" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+      <TextField fx:id="priceField" layoutX="155.0" layoutY="256.0" prefHeight="28.0" prefWidth="134.0" promptText="*Price" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="149.0" layoutY="284.0" prefHeight="85.0" prefWidth="494.0" promptText="*Description" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+      <TextField fx:id="descriptionField" layoutX="149.0" layoutY="284.0" prefHeight="71.0" prefWidth="494.0" promptText="*Description" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </TextField>
+      <Text fx:id="AddAdMessage" fill="#ff0000a8" layoutX="147.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="494.0" />
     </children>
 </AnchorPane>

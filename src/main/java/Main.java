@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import userr.services.AdService;
 import userr.services.FileSystemService;
 import userr.services.UserService;
 
@@ -18,7 +19,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         initDirectory();
         UserService.initDatabase();
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("user_login.fxml"));
+        AdService.initDatabase();
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("home_page.fxml"));
         primaryStage.setTitle("Registration Example");
         primaryStage.setScene(new Scene(root, 650, 450));
         primaryStage.initStyle(StageStyle.TRANSPARENT);
@@ -27,8 +29,11 @@ public class Main extends Application {
 
     private void initDirectory() {
         Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;
+        Path adHomePath = FileSystemService.AD_HOME_PATH;
         if (!Files.exists(applicationHomePath))
             applicationHomePath.toFile().mkdirs();
+        if (!Files.exists(adHomePath))
+            adHomePath.toFile().mkdirs();
     }
 
 

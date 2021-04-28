@@ -71,7 +71,7 @@ public class LoginController {
         FXMLLoader Loader = new FXMLLoader();
         Loader.setLocation(getClass().getClassLoader().getResource("user_registration.fxml"));
         Parent viewuserRegister = Loader.load();
-        Scene Registerscene = new Scene(viewuserRegister, 650, 465);
+        Scene Registerscene = new Scene(viewuserRegister, 650, 450);
         Stage window = (Stage) ((Node) register.getSource()).getScene().getWindow();
         window.setScene(Registerscene);
         window.show();
