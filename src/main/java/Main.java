@@ -20,7 +20,7 @@ public class Main extends Application {
         initDirectory();
         UserService.initDatabase();
         AdService.initDatabase();
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("home_page.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("user_login.fxml"));
         primaryStage.setTitle("Registration Example");
         primaryStage.setScene(new Scene(root, 650, 450));
         primaryStage.initStyle(StageStyle.TRANSPARENT);
@@ -29,11 +29,8 @@ public class Main extends Application {
 
     private void initDirectory() {
         Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;
-        Path adHomePath = FileSystemService.AD_HOME_PATH;
         if (!Files.exists(applicationHomePath))
             applicationHomePath.toFile().mkdirs();
-        if (!Files.exists(adHomePath))
-            adHomePath.toFile().mkdirs();
     }
 
 

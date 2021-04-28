@@ -15,7 +15,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import userr.exceptions.DuplicatedAdException;
 import userr.exceptions.FieldNotCompletedException;
+import userr.exceptions.WrongUsernameException;
 import userr.model.Ad;
 import userr.model.User;
 import userr.services.AdService;
@@ -45,6 +47,8 @@ public class AdController {
     public CheckBox carsBox;
     @FXML
     public CheckBox furnitureBox;
+    @FXML
+    public TextField vusernameField;
 
     @FXML
     public File file;
@@ -104,7 +108,7 @@ public class AdController {
     public void handleCreateAdAction(javafx.event.ActionEvent homepage) throws IOException {
         try {
             AdService.addAd(titleField.getText(), priceField.getText(), descriptionField.getText(),
-                      appliancesBox.isSelected(), clothesBox.isSelected(), carsBox.isSelected(), furnitureBox.isSelected() ,path);
+                      appliancesBox.isSelected(), clothesBox.isSelected(), carsBox.isSelected(), furnitureBox.isSelected() ,path, vusernameField.getText());
             AddAdMessage.setText("Announcement created sucessfully!");
             titleField.clear();
             priceField.clear();
@@ -123,6 +127,14 @@ public class AdController {
             titleField.clear();
             priceField.clear();
             descriptionField.clear();
+            vusernameField.clear();
+        } catch (WrongUsernameException e) {
+            AddAdMessage.setText(e.getMessage());
+            vusernameField.clear();
+        } catch (DuplicatedAdException e) {
+            AddAdMessage.setText(e.getMessage());
+            titleField.clear();
+            vusernameField.clear();
         }
     }
 

@@ -3,6 +3,8 @@ package userr.model;
 
 import org.dizitart.no2.objects.Id;
 
+import java.util.Objects;
+
 public class Ad {
     @Id
     private String title;
@@ -13,8 +15,9 @@ public class Ad {
     private boolean cars;
     private boolean furniture;
     private String photoPath;
+    private String vusername;
 
-    public Ad(String title, String price,String description, boolean appliances, boolean clothes, boolean cars, boolean furniture,String photoPath) {
+    public Ad(String title, String price,String description, boolean appliances, boolean clothes, boolean cars, boolean furniture,String photoPath, String vusername) {
         this.title = title;
         this.price = price;
         this.description = description;
@@ -23,6 +26,7 @@ public class Ad {
         this.cars = cars;
         this.furniture = furniture;
         this.photoPath = photoPath;
+        this.vusername = vusername;
     }
 
     public Ad() {
@@ -88,6 +92,27 @@ public class Ad {
 
     public void setPhotoPath(String photoPath) {
         this.photoPath = photoPath;
+    }
+
+    public String getVusername() { return vusername; }
+
+    public void setVusername(String vusername) { this.vusername = vusername; }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Ad Ad = (Ad) o;
+
+        if (!Objects.equals(title, Ad.title)) return false;
+        if (!Objects.equals(vusername, Ad.vusername)) return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, price, description, appliances, clothes, cars, furniture, photoPath, vusername);
     }
 }
 
