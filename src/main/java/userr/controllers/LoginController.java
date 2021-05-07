@@ -35,7 +35,7 @@ public class LoginController {
     private TextField usernameField;
     @FXML
     private PasswordField passwordField;
-
+    @FXML
     private static String loggedUsername;
 
     @FXML
@@ -78,6 +78,7 @@ public class LoginController {
 
     }
     public static String getLoggedUsername(){return loggedUsername;}
+
     public void minimizeWindow(javafx.event.ActionEvent min) {
         Stage window = (Stage) ((Node) min.getSource()).getScene().getWindow();
         window.setIconified(true);
@@ -87,4 +88,4 @@ public class LoginController {
         Stage window = (Stage) ((Node) close.getSource()).getScene().getWindow();
         window.close();
     }
-    }
+}

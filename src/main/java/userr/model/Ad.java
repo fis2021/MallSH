@@ -7,8 +7,9 @@ import java.util.Objects;
 
 public class Ad {
     @Id
-    private String title;
+    private String id;
     private String price;
+    private String title;
     private String description;
     private boolean appliances;
     private boolean clothes;
@@ -17,7 +18,10 @@ public class Ad {
     private String photoPath;
     private String vusername;
 
-    public Ad(String title, String price,String description, boolean appliances, boolean clothes, boolean cars, boolean furniture,String photoPath, String vusername) {
+    public Ad( String id,String price,String title,String description, boolean appliances,
+               boolean clothes, boolean cars, boolean furniture,String photoPath, String vusername)
+    {
+        this.id = id;
         this.title = title;
         this.price = price;
         this.description = description;
@@ -30,6 +34,14 @@ public class Ad {
     }
 
     public Ad() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -102,11 +114,9 @@ public class Ad {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
-        Ad Ad = (Ad) o;
-
-        if (!Objects.equals(title, Ad.title)) return false;
-        if (!Objects.equals(vusername, Ad.vusername)) return false;
+        Ad ad = (Ad) o;
+        if (vusername != null ? !vusername.equals(ad.vusername) : ad.vusername != null) return false;
+        if (title != null ? !title.equals(ad.title) : ad.title != null) return false;
         return true;
     }
 
@@ -115,4 +125,3 @@ public class Ad {
         return Objects.hash(title, price, description, appliances, clothes, cars, furniture, photoPath, vusername);
     }
 }
-

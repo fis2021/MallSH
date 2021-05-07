@@ -23,14 +23,20 @@ import userr.model.User;
 import userr.services.AdService;
 import userr.services.FileSystemService;
 
+import javax.security.auth.login.LoginContext;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Path;
 import java.util.List;
+import org.dizitart.no2.NitriteId;
+import org.dizitart.no2.objects.ObjectRepository;
+import userr.services.UserService;
+import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 public class AdController {
-
+    private static String username,id;
+    private final ObjectRepository<User> REPOSITORY =UserService.getUsers();
     @FXML
     public Text AddAdMessage;
     @FXML
@@ -47,8 +53,6 @@ public class AdController {
     public CheckBox carsBox;
     @FXML
     public CheckBox furnitureBox;
-    @FXML
-    public TextField vusernameField;
 
     @FXML
     public File file;
@@ -104,11 +108,16 @@ public class AdController {
             clothesBox.setSelected(false);
         }
     }
+    private String loggedUser;
     @FXML
     public void handleCreateAdAction(javafx.event.ActionEvent homepage) throws IOException {
         try {
-            AdService.addAd(titleField.getText(), priceField.getText(), descriptionField.getText(),
-                      appliancesBox.isSelected(), clothesBox.isSelected(), carsBox.isSelected(), furnitureBox.isSelected() ,path, vusernameField.getText());
+            loggedUser = LoginController.getLoggedUsername();
+            User loggedInUser=REPOSITORY.find(eq("username",username)).firstOrDefault();
+            String id = NitriteId.newId().toString();
+            AdService.addAd(id,priceField.getText(), titleField.getText(),descriptionField.getText(),
+                    appliancesBox.isSelected(), clothesBox.isSelected(), carsBox.isSelected(),
+                    furnitureBox.isSelected() ,path, loggedUser);
             AddAdMessage.setText("Announcement created sucessfully!");
             titleField.clear();
             priceField.clear();
@@ -127,14 +136,9 @@ public class AdController {
             titleField.clear();
             priceField.clear();
             descriptionField.clear();
-            vusernameField.clear();
-        } catch (WrongUsernameException e) {
-            AddAdMessage.setText(e.getMessage());
-            vusernameField.clear();
         } catch (DuplicatedAdException e) {
             AddAdMessage.setText(e.getMessage());
             titleField.clear();
-            vusernameField.clear();
         }
     }
 
