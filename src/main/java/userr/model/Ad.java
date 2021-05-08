@@ -18,8 +18,8 @@ public class Ad {
     private String photoPath;
     private String vusername;
 
-    public Ad( String id,String price,String title,String description, boolean appliances,
-               boolean clothes, boolean cars, boolean furniture,String photoPath, String vusername)
+    public Ad(String id, String price, String title, String description, boolean appliances,
+              boolean clothes, boolean cars, boolean furniture, String photoPath, String vusername)
     {
         this.id = id;
         this.title = title;
@@ -36,59 +36,33 @@ public class Ad {
     public Ad() {
     }
 
-    public String getId() {
-        return id;
-    }
+    public String getId() {return id; }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    public void setId(String id) {this.id = id; }
 
-    public String getTitle() {
-        return title;
-    }
+    public String getTitle() {return title; }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    public void setTitle(String title) {this.title = title; }
 
-    public String getPrice() {
-        return price;
-    }
+    public String getPrice() {return price; }
 
-    public void setPrice(String price) {
-        this.price = price;
-    }
+    public void setPrice(String price) {this.price = price; }
 
-    public String getDescription() {
-        return description;
-    }
+    public String getDescription() {return description; }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    public void setDescription(String description) {this.description = description; }
 
-    public boolean isAppliances() {
-        return appliances;
-    }
+    public boolean isAppliances() {return appliances; }
 
-    public void setAppliances(boolean appliances) {
-        this.appliances = appliances;
-    }
+    public void setAppliances(boolean appliances) {this.appliances = appliances; }
 
-    public boolean isClothes() {
-        return clothes;
-    }
+    public boolean isClothes() {return clothes; }
 
-    public void setClothes(boolean clothes) {
-        this.clothes = clothes;
-    }
+    public void setClothes(boolean clothes) {this.clothes = clothes;}
 
     public boolean isCars() { return cars; }
 
-    public void setCars(boolean cars) {
-        this.cars = cars;
-    }
+    public void setCars(boolean cars) {this.cars = cars;}
 
     public boolean isFurniture() {
         return furniture;

@@ -30,7 +30,7 @@
                         <Image url="@logo.png" />
                     </image>
                 </ImageView>
-                <Button layoutX="6.0" layoutY="210.0" mnemonicParsing="false" onAction="#goToCreateAd" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Create Ad" textFill="DARKSLATEGRAY">
+                <Button layoutX="6.0" layoutY="240.0" mnemonicParsing="false" onAction="#goToCreateAd" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Create Ad" textFill="DARKSLATEGRAY">
                     <font>
                         <Font name="Times New Roman" size="14.0" />
                     </font>
@@ -41,7 +41,12 @@
                     </font>
                 </Button>
                 <ImageView fx:id="imageView" fitHeight="105.0" fitWidth="135.0" layoutX="6.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true" />
-                <Text fx:id="Account" layoutX="6.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="135.0" />
+                <Text fx:id="Account" layoutX="6.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="135.0" />
+            <Button layoutX="6.0" layoutY="281.0" mnemonicParsing="false" onAction="#goToDeleteAd" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Delete Ad" textFill="DARKSLATEGRAY">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+            </Button>
             </children>
         </Pane>
         <HBox alignment="TOP_RIGHT" layoutX="450.0" prefHeight="35.0" prefWidth="200.0">
