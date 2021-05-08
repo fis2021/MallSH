@@ -25,8 +25,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 
 public class RegistrationController {
-    private double xOffset = 0;
-    private double yOffset = 0;
+
     @FXML
     private Text registrationMessage = null;
     @FXML
@@ -70,7 +69,7 @@ public class RegistrationController {
                 FXMLLoader Loader = new FXMLLoader();
                 Loader.setLocation(getClass().getClassLoader().getResource("user_login.fxml"));
                 Parent viewuserlogin = Loader.load();
-                Scene loginscene = new Scene(viewuserlogin, 650, 465);
+                Scene loginscene = new Scene(viewuserlogin, 650, 450);
                 Stage window = (Stage) ((Node) login.getSource()).getScene().getWindow();
                 window.setScene(loginscene);
                 window.show();
@@ -102,11 +101,10 @@ public class RegistrationController {
         FXMLLoader Loader = new FXMLLoader();
         Loader.setLocation(getClass().getClassLoader().getResource("user_login.fxml"));
         Parent viewuserLogin = Loader.load();
-        Scene Loginscene = new Scene(viewuserLogin, 650, 465);
+        Scene Loginscene = new Scene(viewuserLogin, 650, 450);
         Stage window = (Stage) ((Node) back.getSource()).getScene().getWindow();
         window.setScene(Loginscene);
         window.show();
-
     }
     private void clearProfilePicture() throws MalformedURLException {
         String pathUser = "src/main/resources/user_registration.png";
@@ -125,7 +123,7 @@ public class RegistrationController {
         Stage stage = new Stage();
         stage.setTitle("Add Photo");
         FileChooser filechooser = new FileChooser();
-        filechooser.setInitialDirectory(new File("C:\\"));
+        filechooser.setInitialDirectory(new File("D:\\"));
         filechooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("jpg files","*.jpg"));
         file = filechooser.showOpenDialog(stage);
         path = file.getAbsolutePath();

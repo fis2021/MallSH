@@ -6,3 +6,7 @@
     -fx-background-color: white!important;
     -fx-text-fill: #20B2AA;
 }
+.homepage-button:hover {
+    -fx-background-color: #20B2AA!important;
+    -fx-text-fill: white;
+}

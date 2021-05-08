@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import userr.services.AdService;
 import userr.services.FileSystemService;
 import userr.services.UserService;
 
@@ -18,6 +19,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         initDirectory();
         UserService.initDatabase();
+        AdService.initDatabase();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("user_login.fxml"));
         primaryStage.setTitle("Registration Example");
         primaryStage.setScene(new Scene(root, 650, 450));

@@ -35,11 +35,11 @@ public class LoginController {
     private TextField usernameField;
     @FXML
     private PasswordField passwordField;
-
+    @FXML
     private static String loggedUsername;
 
     @FXML
-    public void handleLoginAction() throws IOException {
+    public void handleLoginAction(javafx.event.ActionEvent homepage) throws IOException {
         try {
             UserService.loginUser(usernameField.getText(), passwordField.getText());
             loginMessage.setText("Login successfully!");
@@ -47,6 +47,15 @@ public class LoginController {
                 if (Objects.equals(usernameField.getText(), user.getUsername())) {
                     this.loggedUsername = user.getUsername();
                 }
+            }
+            {
+                FXMLLoader Loader = new FXMLLoader();
+                Loader.setLocation(getClass().getClassLoader().getResource("home_page.fxml"));
+                Parent viewhomepage = Loader.load();
+                Scene homepagescene = new Scene(viewhomepage, 650, 450);
+                Stage window = (Stage) ((Node) homepage.getSource()).getScene().getWindow();
+                window.setScene(homepagescene);
+                window.show();
             }
 
         } catch (UsernameDoesNotExistsException e) {
@@ -62,13 +71,14 @@ public class LoginController {
         FXMLLoader Loader = new FXMLLoader();
         Loader.setLocation(getClass().getClassLoader().getResource("user_registration.fxml"));
         Parent viewuserRegister = Loader.load();
-        Scene Registerscene = new Scene(viewuserRegister, 650, 465);
+        Scene Registerscene = new Scene(viewuserRegister, 650, 450);
         Stage window = (Stage) ((Node) register.getSource()).getScene().getWindow();
         window.setScene(Registerscene);
         window.show();
 
     }
     public static String getLoggedUsername(){return loggedUsername;}
+
     public void minimizeWindow(javafx.event.ActionEvent min) {
         Stage window = (Stage) ((Node) min.getSource()).getScene().getWindow();
         window.setIconified(true);
@@ -78,4 +88,4 @@ public class LoginController {
         Stage window = (Stage) ((Node) close.getSource()).getScene().getWindow();
         window.close();
     }
-    }
+}
