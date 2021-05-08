@@ -1,37 +1,29 @@
 package userr.controllers;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.dizitart.no2.NitriteId;
+import org.dizitart.no2.objects.ObjectRepository;
 import userr.exceptions.DuplicatedAdException;
 import userr.exceptions.FieldNotCompletedException;
-import userr.exceptions.WrongUsernameException;
-import userr.model.Ad;
 import userr.model.User;
 import userr.services.AdService;
-import userr.services.FileSystemService;
+import userr.services.UserService;
 
-import javax.security.auth.login.LoginContext;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.nio.file.Path;
-import java.util.List;
-import org.dizitart.no2.NitriteId;
-import org.dizitart.no2.objects.ObjectRepository;
-import userr.services.UserService;
+
 import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 public class AdController {
@@ -150,7 +142,6 @@ public class AdController {
         Stage window = (Stage) ((Node) homepage.getSource()).getScene().getWindow();
         window.setScene(Homepagescene);
         window.show();
-
     }
     public void minimizeWindow(javafx.event.ActionEvent min) {
         Stage window = (Stage) ((Node)min.getSource()).getScene().getWindow();

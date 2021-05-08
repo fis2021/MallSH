@@ -1,42 +1,26 @@
 package userr.controllers;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Orientation;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
-import userr.exceptions.*;
-import userr.model.User;
-import userr.services.UserService;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.collections.ObservableListBase;
 import userr.model.Ad;
-
-import java.awt.event.ActionEvent;
-import java.io.IOException;
-import java.util.List;
-import java.util.Objects;
-import javafx.scene.control.ListView;
-import java.util.ArrayList;
+import userr.model.User;
 import userr.services.AdService;
+import userr.services.UserService;
 
 import java.io.File;
-
-import static userr.services.UserService.getUsers;
-
-import static userr.services.FileSystemService.getPathToFile;
-import javafx.scene.image.Image;
+import java.io.IOException;
+import java.util.Objects;
 
 
 public class HomepageController {
@@ -141,6 +125,15 @@ public class HomepageController {
         Scene createAdscene = new Scene(viewCreateAd, 650, 450);
         Stage window = (Stage) ((Node) create.getSource()).getScene().getWindow();
         window.setScene(createAdscene);
+        window.show();
+    }
+    public void goToDeleteAd(javafx.event.ActionEvent delete) throws IOException {
+        FXMLLoader Loader = new FXMLLoader();
+        Loader.setLocation(getClass().getClassLoader().getResource("delete_ad.fxml"));
+        Parent viewCreateAd = Loader.load();
+        Scene deleteAdscene = new Scene(viewCreateAd, 650, 450);
+        Stage window = (Stage) ((Node) delete.getSource()).getScene().getWindow();
+        window.setScene(deleteAdscene);
         window.show();
     }
     public void goToMyList(javafx.event.ActionEvent create) throws IOException {
