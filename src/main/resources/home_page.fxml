@@ -60,11 +60,6 @@
         </HBox>
         <Pane layoutX="146.0" prefHeight="450.0" prefWidth="12.0" style="-fx-background-color: #2F4F4F;" />
         <ListView fx:id="title" layoutX="165.0" layoutY="130.0" prefHeight="303.0" prefWidth="77.0" />
-        <Button layoutX="469.0" layoutY="35.0" mnemonicParsing="false"  prefHeight="27.0" prefWidth="69.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="addphoto-button" stylesheets="@buttonstyle.css" text="MyList" textFill="DARKSLATEGRAY">
-            <font>
-                <Font name="Times New Roman" size="14.0" />
-            </font>
-        </Button>
         <ListView fx:id="price" layoutX="240.0" layoutY="130.0" prefHeight="303.0" prefWidth="69.0" />
         <ListView fx:id="description" layoutX="308.0" layoutY="130.0" prefHeight="303.0" prefWidth="107.0" />
         <ListView fx:id="appl" layoutX="414.0" layoutY="130.0" prefHeight="303.0" prefWidth="107.0" />
