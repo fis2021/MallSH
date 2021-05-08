@@ -12,6 +12,7 @@ import org.dizitart.no2.NitriteId;
 import org.dizitart.no2.objects.ObjectRepository;
 import userr.exceptions.FieldNotCompletedException;
 import userr.exceptions.TitleDoesNotMatchException;
+import userr.exceptions.WrongUsernameException;
 import userr.model.User;
 import userr.services.AdService;
 import userr.services.UserService;
@@ -63,6 +64,9 @@ public class DeleteAdController {
         } catch (TitleDoesNotMatchException e) {
             DeleteAdMessage.setText(e.getMessage());
             titleField1.clear();
+            validationUsernameField.clear();
+        } catch (WrongUsernameException e) {
+            DeleteAdMessage.setText(e.getMessage());
             validationUsernameField.clear();
         }
     }

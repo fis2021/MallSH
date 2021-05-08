@@ -7,6 +7,7 @@ import userr.controllers.LoginController;
 import userr.exceptions.DuplicatedAdException;
 import userr.exceptions.FieldNotCompletedException;
 import userr.exceptions.TitleDoesNotMatchException;
+import userr.exceptions.WrongUsernameException;
 import userr.model.Ad;
 
 import java.security.MessageDigest;
@@ -41,8 +42,10 @@ public class AdService {
                 throw new DuplicatedAdException();
     }
 
-    public static void deleteAd(String title, String validationUsername) throws FieldNotCompletedException, TitleDoesNotMatchException{
+    public static void deleteAd(String title, String validationUsername) throws FieldNotCompletedException, TitleDoesNotMatchException, WrongUsernameException
+    {
         checkAllFieldCompleted(title,validationUsername);
+        checkUsernameMatch(validationUsername);
         checkTitleMatch(title);
         Ad auxAd = new Ad();
         for(Ad i : adRepository.find()) {
@@ -55,13 +58,23 @@ public class AdService {
     public static void checkTitleMatch(String title) throws TitleDoesNotMatchException {
         int ok = 0;
         for(Ad i : adRepository.find()) {
-            if (Objects.equals(title,i.getTitle())) {
+            if (Objects.equals(title,i.getTitle()) && Objects.equals(LoginController.getLoggedUsername(),i.getVusername())) {
                 ok = 1;
             }
         }
         if (ok == 0)
         {
             throw new TitleDoesNotMatchException();
+        }
+    }
+    public static void checkUsernameMatch(String username) throws WrongUsernameException {
+        int ok = 0;
+        if (Objects.equals(LoginController.getLoggedUsername(),username)) {
+            ok = 1;
+        }
+        if (ok == 0)
+        {
+            throw new WrongUsernameException();
         }
     }
 
