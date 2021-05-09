@@ -21,6 +21,7 @@ import userr.model.User;
 import userr.services.AdService;
 import userr.services.MyAdsService;
 import userr.services.UserService;
+import userr.controllers.RegistrationController;
 
 import java.io.File;
 import java.io.IOException;
@@ -54,15 +55,30 @@ public class ShowDetailController {
     @FXML
     public void initialize() throws IOException {
             about.setText(SearchDetailController.ad1.getDescription());
-            File file = new File(SearchDetailController.ad1.getPhotoPath());
-            String localUrl = file.toURI().toURL().toExternalForm();
-            Image adImg = new Image(localUrl, false);
-            Photopath.setImage(adImg);
-            Photopath.setFitHeight(350);
-            Photopath.setFitWidth(250);
-            Photopath.rotateProperty();
-            Title.setText(SearchDetailController.ad1.getTitle());
-            User.setText(SearchDetailController.ad1.getVusername());
+            if(SearchDetailController.ad1.getPhotoPath()==null)
+            {
+                String pathUser = "src/main/resources/no_image.png";
+                File file = new File(pathUser);
+                String localUrl = file.toURI().toURL().toExternalForm();
+                Image profile = new Image(localUrl, false);
+                Photopath.setImage(profile);
+                Photopath.setFitHeight(350);
+                Photopath.setFitWidth(250);
+                Photopath.rotateProperty();
+                Title.setText(SearchDetailController.ad1.getTitle());
+                User.setText(SearchDetailController.ad1.getVusername());
+            }
+            else {
+                File file = new File(SearchDetailController.ad1.getPhotoPath());
+                String localUrl = file.toURI().toURL().toExternalForm();
+                Image adImg = new Image(localUrl, false);
+                Photopath.setImage(adImg);
+                Photopath.setFitHeight(350);
+                Photopath.setFitWidth(250);
+                Photopath.rotateProperty();
+                Title.setText(SearchDetailController.ad1.getTitle());
+                User.setText(SearchDetailController.ad1.getVusername());
+            }
     }
 
     public void goBackToSearch(javafx.event.ActionEvent search) throws IOException {

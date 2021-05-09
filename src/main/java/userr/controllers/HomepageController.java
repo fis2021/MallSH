@@ -106,6 +106,204 @@ public class HomepageController {
 
 
     }
+    @FXML
+    public void handleAllAction(javafx.event.ActionEvent event) throws IOException{
+
+        ObservableList<String> a = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                a.add(ad.getTitle());
+                title.setItems(a);
+            }
+        }
+        ObservableList<String> b = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                b.add(ad.getPrice());
+                price.setItems(b);
+            }
+        }
+
+        ObservableList<String> d = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                if(ad.isAppliances()==true)
+                    d.add("Appliances");
+                else if(ad.isFurniture()==true)
+                    d.add("Furniture");
+                else if(ad.isClothes()==true)
+                    d.add("Clothes");
+                else if(ad.isCars()==true)
+                    d.add("Cars");
+                appl.setItems(d);
+            }
+        }
+
+        ObservableList<String> h = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                h.add(ad.getVusername());
+                nume.setItems(h);
+            }
+        }
+
+    }
+    @FXML
+    public void handleAppliancesAction(javafx.event.ActionEvent event) throws IOException {
+
+
+        ObservableList<String> a = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                if(ad.isAppliances()==true)
+                    a.add(ad.getTitle());
+                title.setItems(a);
+            }
+        }
+        ObservableList<String> b = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                if(ad.isAppliances()==true)
+                    b.add(ad.getPrice());
+                price.setItems(b);
+            }
+        }
+
+        ObservableList<String> d = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                if (ad.isAppliances() == true)
+                    d.add("Appliances");
+                appl.setItems(d);
+            }
+        }
+
+        ObservableList<String> h = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                if (ad.isAppliances() == true)
+                    h.add(ad.getVusername());
+                nume.setItems(h);
+            }
+        }
+    }
+    @FXML
+    public void handleFurnitureAction(javafx.event.ActionEvent event) throws IOException {
+
+
+        ObservableList<String> a = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                if(ad.isFurniture()==true)
+                    a.add(ad.getTitle());
+                title.setItems(a);
+            }
+        }
+        ObservableList<String> b = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                if(ad.isFurniture()==true)
+                    b.add(ad.getPrice());
+                price.setItems(b);
+            }
+        }
+
+        ObservableList<String> d = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                if (ad.isFurniture() == true)
+                    d.add("Furniture");
+                appl.setItems(d);
+            }
+        }
+
+        ObservableList<String> h = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                if (ad.isFurniture() == true)
+                    h.add(ad.getVusername());
+                nume.setItems(h);
+            }
+        }
+    }
+    @FXML
+    public void handleClothesAction(javafx.event.ActionEvent event) throws IOException {
+
+
+        ObservableList<String> a = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                if(ad.isClothes()==true)
+                    a.add(ad.getTitle());
+                title.setItems(a);
+            }
+        }
+        ObservableList<String> b = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                if(ad.isClothes()==true)
+                    b.add(ad.getPrice());
+                price.setItems(b);
+            }
+        }
+
+        ObservableList<String> d = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                if (ad.isClothes() == true)
+                    d.add("Clothes");
+                appl.setItems(d);
+            }
+        }
+
+        ObservableList<String> h = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                if (ad.isClothes() == true)
+                    h.add(ad.getVusername());
+                nume.setItems(h);
+            }
+        }
+    }
+    @FXML
+    public void handleCarsAction(javafx.event.ActionEvent event) throws IOException {
+
+
+        ObservableList<String> a = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                if(ad.isCars()==true)
+                    a.add(ad.getTitle());
+                title.setItems(a);
+            }
+        }
+        ObservableList<String> b = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                if(ad.isCars()==true)
+                    b.add(ad.getPrice());
+                price.setItems(b);
+            }
+        }
+
+        ObservableList<String> d = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                if (ad.isCars() == true)
+                    d.add("Cars");
+                appl.setItems(d);
+            }
+        }
+
+        ObservableList<String> h = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                if (ad.isCars() == true)
+                    h.add(ad.getVusername());
+                nume.setItems(h);
+            }
+        }
+    }
 
     @FXML
     public void goBackToLogin(javafx.event.ActionEvent login) throws IOException {
@@ -145,6 +343,7 @@ public class HomepageController {
         window.setScene(createAdscene);
         window.show();
     }
+
     public void goToSearch(javafx.event.ActionEvent login) throws IOException {
         FXMLLoader Loader = new FXMLLoader();
         Loader.setLocation(getClass().getClassLoader().getResource("search_ad.fxml"));
