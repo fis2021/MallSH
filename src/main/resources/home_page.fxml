@@ -47,7 +47,7 @@
                   <Font name="Times New Roman" size="14.0" />
                </font>
             </Button>
-            <Button layoutX="6.0" layoutY="320.0" mnemonicParsing="false" onAction="#goToDetails" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Details" textFill="DARKSLATEGRAY">
+            <Button layoutX="6.0" layoutY="320.0" mnemonicParsing="false" onAction="#goToSearch" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Search by Title" textFill="DARKSLATEGRAY">
                <font>
                   <Font name="Times New Roman" size="14.0" />
                </font>

@@ -53,6 +53,7 @@ public class AdController {
     @FXML
     ImageView photoPath;
 
+
     @FXML
     void handleAddPhoto() throws MalformedURLException {
         Stage stage = new Stage();
@@ -109,7 +110,7 @@ public class AdController {
             String id = NitriteId.newId().toString();
             AdService.addAd(id,priceField.getText(), titleField.getText(),descriptionField.getText(),
                     appliancesBox.isSelected(), clothesBox.isSelected(), carsBox.isSelected(),
-                    furnitureBox.isSelected() ,path, loggedUser);
+                    furnitureBox.isSelected() ,path, loggedUser,false);
             AddAdMessage.setText("Announcement created sucessfully!");
             titleField.clear();
             priceField.clear();
