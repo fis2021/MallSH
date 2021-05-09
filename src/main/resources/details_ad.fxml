@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userr.controllers.ShowDetailController">
     <children>
         <Pane prefHeight="85.0" prefWidth="661.0" style="-fx-background-color: #20B2AA;">
             <children>
@@ -32,42 +32,42 @@
         </Pane>
         <HBox alignment="TOP_RIGHT" layoutX="450.0" prefHeight="35.0" prefWidth="200.0">
             <children>
-                <Button fx:id="minimizeField" contentDisplay="TOP" mnemonicParsing="false" prefHeight="27.0" prefWidth="24.0" style="-fx-background-color: transparent;" text="_" textFill="#1c1c1d">
+                <Button fx:id="minimizeField" contentDisplay="TOP" mnemonicParsing="false" onAction="#minimizeWindow" prefHeight="27.0" prefWidth="24.0" style="-fx-background-color: transparent;" text="_" textFill="#1c1c1d">
                     <font>
                         <Font name="System Bold" size="11.0" />
                     </font>
                 </Button>
-                <Button fx:id="closeField" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="13.0" prefWidth="25.0" style="-fx-background-color: transparent;" text="x" textAlignment="CENTER" textFill="#181819" textOverrun="CLIP">
+                <Button fx:id="closeField" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#closeWindow" prefHeight="13.0" prefWidth="25.0" style="-fx-background-color: transparent;" text="x" textAlignment="CENTER" textFill="#181819" textOverrun="CLIP">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Button>
             </children>
         </HBox>
-        <Button layoutX="549.0" layoutY="389.0" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Display" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
+        <Button layoutX="549.0" layoutY="389.0" onAction="#handleDetailsAction" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Display" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
             <font>
                 <Font name="Times New Roman" size="16.0" />
             </font>
         </Button>
         <Pane layoutY="85.0" prefHeight="12.0" prefWidth="661.0" style="-fx-background-color: #2F4F4F;" />
-        <ImageView fitHeight="115.0" fitWidth="119.0" layoutX="14.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="Photopath" fitHeight="115.0" fitWidth="119.0" layoutX="14.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@AdPhoto_logo.png" />
             </image>
         </ImageView>
-        <Button layoutX="14.0" layoutY="389.0" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Back" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
+        <Button layoutX="14.0" layoutY="389.0" onAction="#goBackToHomepage" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Back" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
             <font>
                 <Font name="Times New Roman" size="16.0" />
             </font>
         </Button>
         <HBox prefHeight="100.0" prefWidth="200.0" />
         <HBox prefHeight="100.0" prefWidth="200.0" />
-        <TextField layoutX="151.0" layoutY="150.0" prefHeight="28.0" prefWidth="236.0" promptText="Title" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+        <TextField fx:id="titleField" layoutX="151.0" layoutY="150.0" prefHeight="28.0" prefWidth="236.0" promptText="Title" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
             <font>
                 <Font name="Times New Roman" size="14.0" />
             </font>
         </TextField>
-        <TextField layoutX="151.0" layoutY="178.0" prefHeight="29.0" prefWidth="236.0" promptText="Owner of ad(please enter its username)" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+        <TextField fx:id="ownerField" layoutX="151.0" layoutY="178.0" prefHeight="29.0" prefWidth="236.0" promptText="Owner of ad(please enter its username)" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
             <font>
                 <Font name="Times New Roman" size="14.0" />
             </font>

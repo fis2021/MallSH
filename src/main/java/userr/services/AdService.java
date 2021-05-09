@@ -41,6 +41,46 @@ public class AdService {
             if (Objects.equals(username, i.getVusername()) && Objects.equals(title, i.getTitle()) )
                 throw new DuplicatedAdException();
     }
+    public static void detailsAd(String title, String username) throws FieldNotCompletedException, TitleDoesNotMatchException, WrongUsernameException
+    {
+        checkAllFieldCompleted1(title,username);
+        checkUsernameMatch1(username);
+        checkTitleMatch1(title,username);
+    }
+
+
+    public static void checkUsernameMatch1(String username) throws WrongUsernameException {
+        int ok = 0;
+        for( Ad i : adRepository.find())
+            if (Objects.equals(i.getVusername(),username)) {
+                ok = 1;
+            }
+        if (ok == 0)
+        {
+            throw new WrongUsernameException();
+        }
+    }
+    public static void checkTitleMatch1(String title,String username) throws TitleDoesNotMatchException {
+        int ok = 0;
+        for(Ad i : adRepository.find()) {
+            if (Objects.equals(title,i.getTitle()) && Objects.equals(username,i.getVusername())) {
+                ok = 1;
+            }
+        }
+        if (ok == 0)
+        {
+            throw new TitleDoesNotMatchException();
+        }
+    }
+
+
+    public static void checkAllFieldCompleted1(String title, String username) throws FieldNotCompletedException {
+        if (title.trim().isEmpty() || username.trim().isEmpty())
+        {
+            throw new FieldNotCompletedException();
+        }
+    }
+
 
     public static void deleteAd(String title, String validationUsername) throws FieldNotCompletedException, TitleDoesNotMatchException, WrongUsernameException
     {
