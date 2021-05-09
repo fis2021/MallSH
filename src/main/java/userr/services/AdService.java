@@ -29,11 +29,11 @@ public class AdService {
 
 
     public static void addAd( String id,String price,String title, String description, boolean appliances,
-                              boolean clothes, boolean cars, boolean furniture, String photoPath, String vusername) throws FieldNotCompletedException, DuplicatedAdException
+                              boolean clothes, boolean cars, boolean furniture, String photoPath, String vusername, boolean favorite) throws FieldNotCompletedException, DuplicatedAdException
     {
         checkAllFieldCompleted(price,title, description, appliances, clothes, cars, furniture);
         checkDuplicateAd(title,vusername);
-        adRepository.insert(new Ad(id,price,title, description, appliances, clothes, cars, furniture, photoPath, vusername));
+        adRepository.insert(new Ad(id,price,title, description, appliances, clothes, cars, furniture, photoPath, vusername,favorite));
     }
     public static void checkDuplicateAd(String title, String username) throws DuplicatedAdException
     {

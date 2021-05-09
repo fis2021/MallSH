@@ -145,15 +145,14 @@ public class HomepageController {
         window.setScene(createAdscene);
         window.show();
     }
-    public void goToDetails(javafx.event.ActionEvent login) throws IOException {
+    public void goToSearch(javafx.event.ActionEvent login) throws IOException {
         FXMLLoader Loader = new FXMLLoader();
-        Loader.setLocation(getClass().getClassLoader().getResource("details_ad.fxml"));
-        Parent viewDetails = Loader.load();
-        Scene Detailsscene = new Scene(viewDetails, 650, 450);
+        Loader.setLocation(getClass().getClassLoader().getResource("search_ad.fxml"));
+        Parent viewSearch = Loader.load();
+        Scene Searchscene = new Scene(viewSearch, 650, 450);
         Stage window = (Stage) ((Node) login.getSource()).getScene().getWindow();
-        window.setScene(Detailsscene);
+        window.setScene(Searchscene);
         window.show();
-
     }
     public void minimizeWindow(javafx.event.ActionEvent min) {
         Stage window = (Stage) ((Node) min.getSource()).getScene().getWindow();

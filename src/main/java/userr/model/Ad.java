@@ -17,9 +17,10 @@ public class Ad {
     private boolean furniture;
     private String photoPath;
     private String vusername;
+    private boolean favorite;
 
     public Ad(String id, String price, String title, String description, boolean appliances,
-              boolean clothes, boolean cars, boolean furniture, String photoPath, String vusername)
+              boolean clothes, boolean cars, boolean furniture, String photoPath, String vusername, boolean favorite)
     {
         this.id = id;
         this.title = title;
@@ -31,6 +32,7 @@ public class Ad {
         this.furniture = furniture;
         this.photoPath = photoPath;
         this.vusername = vusername;
+        this.favorite = favorite;
     }
 
     public Ad() {
@@ -83,6 +85,14 @@ public class Ad {
     public String getVusername() { return vusername; }
 
     public void setVusername(String vusername) { this.vusername = vusername; }
+
+    public boolean isFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
+    }
 
     @Override
     public boolean equals(Object o) {
