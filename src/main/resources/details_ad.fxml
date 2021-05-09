@@ -28,6 +28,7 @@
                         <Image url="@logo.png" />
                     </image>
                 </ImageView>
+            <Text fill="DARKSLATEGRAY" layoutX="34.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Listed by:" wrappingWidth="63.47004699707031" />
             </children>
         </Pane>
         <HBox alignment="TOP_RIGHT" layoutX="450.0" prefHeight="35.0" prefWidth="200.0">
@@ -44,35 +45,44 @@
                 </Button>
             </children>
         </HBox>
-        <Button layoutX="549.0" layoutY="389.0" onAction="#handleDetailsAction" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Display" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
-            <font>
-                <Font name="Times New Roman" size="16.0" />
-            </font>
-        </Button>
         <Pane layoutY="85.0" prefHeight="12.0" prefWidth="661.0" style="-fx-background-color: #2F4F4F;" />
-        <ImageView fx:id="Photopath" fitHeight="115.0" fitWidth="119.0" layoutX="14.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="Photopath" fitHeight="194.0" fitWidth="212.0" layoutX="234.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@AdPhoto_logo.png" />
             </image>
         </ImageView>
-        <Button layoutX="14.0" layoutY="389.0" onAction="#goBackToHomepage" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Back" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
+        <Button layoutX="14.0" layoutY="389.0" onAction="#goBackToSearch" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Back" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
             <font>
                 <Font name="Times New Roman" size="16.0" />
             </font>
         </Button>
-        <HBox prefHeight="100.0" prefWidth="200.0" />
-        <HBox prefHeight="100.0" prefWidth="200.0" />
-        <TextField fx:id="titleField" layoutX="151.0" layoutY="150.0" prefHeight="28.0" prefWidth="236.0" promptText="Title" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
-            <font>
-                <Font name="Times New Roman" size="14.0" />
-            </font>
-        </TextField>
-        <TextField fx:id="ownerField" layoutX="151.0" layoutY="178.0" prefHeight="29.0" prefWidth="236.0" promptText="Owner of ad(please enter its username)" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
-            <font>
-                <Font name="Times New Roman" size="14.0" />
-            </font>
-        </TextField>
-        <Text fx:id="about" layoutX="147.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="439.4700469970703" />
-        <Text fx:id="AddAdMessage" fill="#ef1515" layoutX="151.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="236.0" />
+        <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+              <HBox prefHeight="100.0" prefWidth="200.0" />
+         </children></HBox>
+        <Text fx:id="about" fill="DARKSLATEGRAY" layoutX="116.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="533.4700469970703">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font></Text>
+      <Text fx:id="Title" layoutX="116.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="504.4700469970703">
+         <font>
+            <Font name="Times New Roman" size="48.0" />
+         </font>
+      </Text>
+      <Text fx:id="User" fill="DARKSLATEGRAY" layoutX="14.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="259.4700469970703">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Button layoutX="519.0" layoutY="412.0" mnemonicParsing="false" onAction="#handleSaveAdAction" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Save as favorite" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
+         <font>
+            <Font name="Times New Roman" size="10.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="savePath" fitHeight="53.0" fitWidth="74.0" layoutX="594.0" layoutY="396.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@green_h.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>
