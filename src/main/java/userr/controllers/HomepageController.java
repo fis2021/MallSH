@@ -145,6 +145,16 @@ public class HomepageController {
         window.setScene(createAdscene);
         window.show();
     }
+    public void goToDetails(javafx.event.ActionEvent login) throws IOException {
+        FXMLLoader Loader = new FXMLLoader();
+        Loader.setLocation(getClass().getClassLoader().getResource("details_ad.fxml"));
+        Parent viewDetails = Loader.load();
+        Scene Detailsscene = new Scene(viewDetails, 650, 450);
+        Stage window = (Stage) ((Node) login.getSource()).getScene().getWindow();
+        window.setScene(Detailsscene);
+        window.show();
+
+    }
     public void minimizeWindow(javafx.event.ActionEvent min) {
         Stage window = (Stage) ((Node) min.getSource()).getScene().getWindow();
         window.setIconified(true);
