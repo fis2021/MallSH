@@ -38,61 +38,63 @@ public class ShowDetailController {
     private static ObjectRepository<User> userRepository = UserService.getUsers();
 
     @FXML
-    TextField titleField;
+    Text Title;
     @FXML
-    TextField ownerField;
+    Text User;
     @FXML
     ImageView Photopath;
+
+    @FXML
+    ImageView savePath;
 
     @FXML
     Text about;
     @FXML
     Text AddAdMessage;
     @FXML
-    public void handleDetailsAction(javafx.event.ActionEvent homepage) throws IOException, InterruptedException {
-        try {
-            Ad ad1 = new Ad();
-            AdService.detailsAd(titleField.getText(),ownerField.getText());
-            for(Ad ad: adRepository.find()) {
-                if (Objects.equals(titleField.getText(), ad.getTitle()) && Objects.equals(ownerField.getText(), ad.getVusername())) {
-                    ad1 = ad;
-                }
-            }
-            about.setText(ad1.getDescription());
-            File file = new File(ad1.getPhotoPath());
+    public void initialize() throws IOException {
+            about.setText(SearchDetailController.ad1.getDescription());
+            File file = new File(SearchDetailController.ad1.getPhotoPath());
             String localUrl = file.toURI().toURL().toExternalForm();
-            Image profile = new Image(localUrl, false);
-            Photopath.setImage(profile);
-            Photopath.setFitHeight(175);
-            Photopath.setFitWidth(125);
+            Image adImg = new Image(localUrl, false);
+            Photopath.setImage(adImg);
+            Photopath.setFitHeight(350);
+            Photopath.setFitWidth(250);
             Photopath.rotateProperty();
-
-        } catch (FieldNotCompletedException e) {
-            AddAdMessage.setText(e.getMessage());
-            titleField.clear();
-            ownerField.clear();
-
-        } catch (TitleDoesNotMatchException e) {
-            AddAdMessage.setText(e.getMessage());
-            titleField.clear();
-            ownerField.clear();
-        } catch (WrongUsernameException e) {
-            AddAdMessage.setText(e.getMessage());
-            titleField.clear();
-            ownerField.clear();
-
-        }
+            Title.setText(SearchDetailController.ad1.getTitle());
+            User.setText(SearchDetailController.ad1.getVusername());
     }
 
-    public void goBackToHomepage(javafx.event.ActionEvent homepage) throws IOException {
+    public void goBackToSearch(javafx.event.ActionEvent search) throws IOException {
         FXMLLoader Loader = new FXMLLoader();
-        Loader.setLocation(getClass().getClassLoader().getResource("home_page.fxml"));
-        Parent viewHomepage = Loader.load();
-        Scene Homepagescene = new Scene(viewHomepage, 650, 450);
-        Stage window = (Stage) ((Node) homepage.getSource()).getScene().getWindow();
-        window.setScene(Homepagescene);
+        Loader.setLocation(getClass().getClassLoader().getResource("search_ad.fxml"));
+        Parent viewSearch = Loader.load();
+        Scene Searchscene = new Scene(viewSearch, 650, 450);
+        Stage window = (Stage) ((Node) search.getSource()).getScene().getWindow();
+        window.setScene(Searchscene);
         window.show();
+    }
+    public static Ad ad1 = new Ad();
+    public void handleSaveAdAction(javafx.event.ActionEvent search) throws IOException {
+        for(Ad ad: adRepository.find()) {
+            if (Objects.equals(Title.getText(), ad.getTitle()) && Objects.equals(User.getText(), ad.getVusername())) {
+                ad1 = ad;
+            }
+        }
+        saveAdPicture();
+    }
 
+    private void saveAdPicture() throws MalformedURLException {
+        ad1.setFavorite(true);
+        String pathUser = "src/main/resources/red_h.png";
+        File file = new File(pathUser);
+        String localUrl = file.toURI().toURL().toExternalForm();
+        Image saveImg = new Image(localUrl, false);
+        savePath.setLayoutY(396);
+        savePath.setLayoutX(594);
+        savePath.setFitWidth(74);
+        savePath.setFitHeight(53);
+        savePath.setImage(saveImg);
     }
     public void minimizeWindow(javafx.event.ActionEvent min) {
         Stage window = (Stage) ((Node)min.getSource()).getScene().getWindow();
