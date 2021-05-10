@@ -33,7 +33,7 @@ public class AdService {
     {
         checkAllFieldCompleted(price,title, description, appliances, clothes, cars, furniture);
         checkDuplicateAd(title,vusername);
-        adRepository.insert(new Ad(id,price,title, description, appliances, clothes, cars, furniture, photoPath, vusername,favorite));
+        adRepository.insert(new Ad(id,price,title, description, appliances, clothes, cars, furniture, photoPath, vusername));
     }
     public static void checkDuplicateAd(String title, String username) throws DuplicatedAdException
     {

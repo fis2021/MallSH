@@ -17,10 +17,11 @@ public class Ad {
     private boolean furniture;
     private String photoPath;
     private String vusername;
+    private String ownUsername;
     private boolean favorite;
 
     public Ad(String id, String price, String title, String description, boolean appliances,
-              boolean clothes, boolean cars, boolean furniture, String photoPath, String vusername, boolean favorite)
+              boolean clothes, boolean cars, boolean furniture, String photoPath, String vusername)
     {
         this.id = id;
         this.title = title;
@@ -32,9 +33,16 @@ public class Ad {
         this.furniture = furniture;
         this.photoPath = photoPath;
         this.vusername = vusername;
-        this.favorite = favorite;
     }
 
+    public Ad(String id, String ownUsername, String title, String vusername,boolean favorite)
+    {
+        this.id = id;
+        this.title = title;
+        this.ownUsername = ownUsername;
+        this.vusername = vusername;
+        this.favorite = favorite;
+    }
     public Ad() {
     }
 
@@ -85,6 +93,14 @@ public class Ad {
     public String getVusername() { return vusername; }
 
     public void setVusername(String vusername) { this.vusername = vusername; }
+
+    public String getOwnUsername() {
+        return ownUsername;
+    }
+
+    public void setOwnUsername(String ownUsername) {
+        this.ownUsername = ownUsername;
+    }
 
     public boolean isFavorite() {
         return favorite;

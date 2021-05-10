@@ -19,6 +19,7 @@ import userr.exceptions.WrongUsernameException;
 import userr.model.Ad;
 import userr.model.User;
 import userr.services.AdService;
+import userr.services.FavoriteAdService;
 import userr.services.MyAdsService;
 import userr.services.UserService;
 
@@ -36,6 +37,7 @@ public class ShowDetailController {
     private String loggedUser;
     private static ObjectRepository<Ad> adRepository = AdService.getAdRepository();
     private static ObjectRepository<User> userRepository = UserService.getUsers();
+    private static ObjectRepository<Ad> favAdRepo = FavoriteAdService.getFavoriteRepository();
 
     @FXML
     Text Title;
@@ -52,17 +54,41 @@ public class ShowDetailController {
     @FXML
     Text AddAdMessage;
     @FXML
+    private static String loggedUsername;
+    public static Ad ad1 = new Ad();
+    @FXML
     public void initialize() throws IOException {
-            about.setText(SearchDetailController.ad1.getDescription());
-            File file = new File(SearchDetailController.ad1.getPhotoPath());
+        about.setText(SearchDetailController.ad1.getDescription());
+        for(Ad ad : favAdRepo.find()) {
+            if (Objects.equals(LoginController.getLoggedUsername(), ad.getOwnUsername()) && Objects.equals(ad.isFavorite(), true)
+                    && Objects.equals(ad.getVusername(),SearchDetailController.ad1.getVusername())) {
+                saveAdPicture();
+            }
+        }
+        if(SearchDetailController.ad1.getPhotoPath()==null)
+        {
+            String pathUser = "src/main/resources/no_image.png";
+            File file = new File(pathUser);
             String localUrl = file.toURI().toURL().toExternalForm();
-            Image adImg = new Image(localUrl, false);
-            Photopath.setImage(adImg);
+            Image profile = new Image(localUrl, false);
+            Photopath.setImage(profile);
             Photopath.setFitHeight(350);
             Photopath.setFitWidth(250);
             Photopath.rotateProperty();
             Title.setText(SearchDetailController.ad1.getTitle());
             User.setText(SearchDetailController.ad1.getVusername());
+        }
+        else {
+                File file = new File(SearchDetailController.ad1.getPhotoPath());
+                String localUrl = file.toURI().toURL().toExternalForm();
+                Image adImg = new Image(localUrl, false);
+                Photopath.setImage(adImg);
+                Photopath.setFitHeight(350);
+                Photopath.setFitWidth(250);
+                Photopath.rotateProperty();
+                Title.setText(SearchDetailController.ad1.getTitle());
+                User.setText(SearchDetailController.ad1.getVusername());
+            }
     }
 
     public void goBackToSearch(javafx.event.ActionEvent search) throws IOException {
@@ -74,18 +100,20 @@ public class ShowDetailController {
         window.setScene(Searchscene);
         window.show();
     }
-    public static Ad ad1 = new Ad();
     public void handleSaveAdAction(javafx.event.ActionEvent search) throws IOException {
+        loggedUser = LoginController.getLoggedUsername();
+        //User loggedInUser=userRepository.find(eq("username",username)).firstOrDefault();
         for(Ad ad: adRepository.find()) {
             if (Objects.equals(Title.getText(), ad.getTitle()) && Objects.equals(User.getText(), ad.getVusername())) {
                 ad1 = ad;
             }
         }
+        String id = NitriteId.newId().toString();
+        FavoriteAdService.addFavorite(id,loggedUser, ad1.getTitle(),ad1.getVusername(),true);
         saveAdPicture();
     }
 
     private void saveAdPicture() throws MalformedURLException {
-        ad1.setFavorite(true);
         String pathUser = "src/main/resources/red_h.png";
         File file = new File(pathUser);
         String localUrl = file.toURI().toURL().toExternalForm();
