@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Pane prefHeight="85.0" prefWidth="661.0" style="-fx-background-color: #20B2AA;">
+            <children>
+                <TextField alignment="BOTTOM_CENTER" disable="true" editable="false" layoutX="526.0" layoutY="23.0" mouseTransparent="true" prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" text="Feedback">
+                    <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                    </font>
+                    <effect>
+                        <Blend />
+                    </effect>
+                </TextField>
+                <ImageView fitHeight="134.0" fitWidth="135.0" layoutX="6.0" layoutY="-24.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@logo.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </Pane>
+        <HBox alignment="TOP_RIGHT" layoutX="450.0" prefHeight="35.0" prefWidth="200.0">
+            <children>
+                <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="27.0" prefWidth="24.0" style="-fx-background-color: transparent;" text="_" textFill="#1c1c1d">
+                    <font>
+                        <Font name="System Bold" size="11.0" />
+                    </font>
+                </Button>
+                <Button contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="13.0" prefWidth="25.0" style="-fx-background-color: transparent;" text="x" textAlignment="CENTER" textFill="#181819" textOverrun="CLIP">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+        <TextField fx:id="titleField1" layoutX="139.0" layoutY="179.0" prefHeight="31.0" prefWidth="495.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+            <font>
+                <Font name="Times New Roman" size="15.0" />
+            </font>
+        </TextField>
+        <Button layoutX="521.0" layoutY="389.0" prefHeight="34.0" prefWidth="125.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Give Feedback" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
+            <font>
+                <Font name="Times New Roman" size="16.0" />
+            </font>
+        </Button>
+        <Pane layoutY="85.0" prefHeight="12.0" prefWidth="661.0" style="-fx-background-color: #2F4F4F;" />
+        <Button layoutX="14.0" layoutY="389.0" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Back" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
+            <font>
+                <Font name="Times New Roman" size="16.0" />
+            </font>
+        </Button>
+        <HBox prefHeight="100.0" prefWidth="200.0" />
+        <HBox prefHeight="100.0" prefWidth="200.0" />
+        <Text layoutX="139.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rate:" wrappingWidth="173.33333333333337" />
+        <Text layoutX="139.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your feedback:" wrappingWidth="173.33333333333337" />
+      <ChoiceBox layoutX="139.0" layoutY="248.0" prefWidth="150.0" />
+    </children>
+</AnchorPane>
