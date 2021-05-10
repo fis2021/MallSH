@@ -84,5 +84,6 @@
             <Image url="@green_h.png" />
          </image>
       </ImageView>
+      <Text fx:id="NotFavMessage" fill="#ff0000a8" layoutX="144.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="313.0" />
     </children>
 </AnchorPane>

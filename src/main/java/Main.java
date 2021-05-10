@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import userr.model.Feedback;
 import userr.services.AdService;
+import userr.services.FavoriteAdService;
 import userr.services.FeedbackService;
 import userr.services.FileSystemService;
 import userr.services.UserService;
@@ -22,6 +23,7 @@ public class Main extends Application {
         initDirectory();
         UserService.initDatabase();
         AdService.initDatabase();
+        FavoriteAdService.initDatabase();
         FeedbackService.initDatabase();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("user_login.fxml"));
         primaryStage.setTitle("Registration Example");
