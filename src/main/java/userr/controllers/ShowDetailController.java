@@ -17,6 +17,7 @@ import userr.model.User;
 import userr.services.AdService;
 import userr.services.FavoriteAdService;
 import userr.services.UserService;
+import userr.controllers.RegistrationController;
 
 import java.io.File;
 import java.io.IOException;

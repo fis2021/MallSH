@@ -42,16 +42,16 @@
                 </Button>
                 <ImageView fx:id="imageView" fitHeight="105.0" fitWidth="135.0" layoutX="6.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true" />
                 <Text fx:id="Account" layoutX="6.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="135.0" />
-            <Button layoutX="6.0" layoutY="281.0" mnemonicParsing="false" onAction="#goToDeleteAd" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Delete Ad" textFill="DARKSLATEGRAY">
-               <font>
-                  <Font name="Times New Roman" size="14.0" />
-               </font>
-            </Button>
-            <Button layoutX="6.0" layoutY="320.0" mnemonicParsing="false" onAction="#goToSearch" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Search by Title" textFill="DARKSLATEGRAY">
-               <font>
-                  <Font name="Times New Roman" size="14.0" />
-               </font>
-            </Button>
+                <Button layoutX="6.0" layoutY="281.0" mnemonicParsing="false" onAction="#goToDeleteAd" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Delete Ad" textFill="DARKSLATEGRAY">
+                    <font>
+                        <Font name="Times New Roman" size="14.0" />
+                    </font>
+                </Button>
+                <Button layoutX="6.0" layoutY="320.0" mnemonicParsing="false" onAction="#goToSearch" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Search by Title" textFill="DARKSLATEGRAY">
+                    <font>
+                        <Font name="Times New Roman" size="14.0" />
+                    </font>
+                </Button>
             </children>
         </Pane>
         <HBox alignment="TOP_RIGHT" layoutX="450.0" prefHeight="35.0" prefWidth="200.0">
@@ -69,20 +69,49 @@
             </children>
         </HBox>
         <Pane layoutX="146.0" prefHeight="450.0" prefWidth="12.0" style="-fx-background-color: #2F4F4F;" />
-        <ListView fx:id="title" layoutX="165.0" layoutY="130.0" prefHeight="303.0" prefWidth="77.0" />
-        <ListView fx:id="price" layoutX="240.0" layoutY="130.0" prefHeight="303.0" prefWidth="69.0" />
-        <ListView fx:id="description" layoutX="308.0" layoutY="130.0" prefHeight="303.0" prefWidth="107.0" />
-        <ListView fx:id="appl" layoutX="414.0" layoutY="130.0" prefHeight="303.0" prefWidth="107.0" />
-        <ListView fx:id="nume" layoutX="517.0" layoutY="130.0" prefHeight="303.0" prefWidth="128.0" />
+        <ListView fx:id="title" layoutX="209.0" layoutY="158.0" prefHeight="275.0" prefWidth="77.0" />
+        <ListView fx:id="price" layoutX="282.0" layoutY="158.0" prefHeight="275.0" prefWidth="77.0" />
+        <ListView fx:id="appl" layoutX="359.0" layoutY="158.0" prefHeight="275.0" prefWidth="107.0" />
+        <ListView fx:id="nume" layoutX="458.0" layoutY="158.0" prefHeight="275.0" prefWidth="114.0" />
         <Button layoutX="469.0" layoutY="35.0" mnemonicParsing="false" onAction="#goToMyList" prefHeight="27.0" prefWidth="69.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="addphoto-button" stylesheets="@buttonstyle.css" text="MyList" textFill="DARKSLATEGRAY">
             <font>
                 <Font name="Times New Roman" size="14.0" />
             </font>
         </Button>
-        <TextArea layoutX="165.0" layoutY="92.0" prefHeight="30.0" prefWidth="481.0" promptText="  Title  Price  Description  Appliencies  Furniture  Clothes  Cars  Username  " text="         Title        Price         Description         Category         Username       " AnchorPane.bottomAnchor="319.3333333333333" AnchorPane.leftAnchor="165.0" AnchorPane.rightAnchor="3.6666666666666856" AnchorPane.topAnchor="92.0">
+        <TextArea layoutX="209.0" layoutY="113.0" prefHeight="43.0" prefWidth="366.0" text="    Title          Price            Category          Username       " AnchorPane.bottomAnchor="298.0" AnchorPane.leftAnchor="209.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="113.0">
             <font>
                 <Font size="14.0" />
             </font>
         </TextArea>
+        <Button layoutX="213.0" layoutY="86.0" mnemonicParsing="false" onAction="#handleAllAction" prefHeight="27.0" prefWidth="43.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 1px 1px 1px 1px;" styleClass="addphoto-button" stylesheets="@buttonstyle.css" text="All" textFill="DARKSLATEGRAY">
+            <font>
+                <Font name="Times New Roman" size="12.0" />
+            </font>
+        </Button>
+        <Button layoutX="260.0" layoutY="86.0" mnemonicParsing="false" onAction="#handleAppliancesAction" prefHeight="27.0" prefWidth="77.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 1px 1px 1px 1px;" styleClass="addphoto-button" stylesheets="@buttonstyle.css" text="Appliances" textFill="DARKSLATEGRAY">
+            <font>
+                <Font name="Times New Roman" size="12.0" />
+            </font>
+        </Button>
+        <Button layoutX="335.0" layoutY="86.0" mnemonicParsing="false" onAction="#handleFurnitureAction" prefHeight="27.0" prefWidth="77.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 1px 1px 1px 1px;" styleClass="addphoto-button" stylesheets="@buttonstyle.css" text="Furniture" textFill="DARKSLATEGRAY">
+            <font>
+                <Font name="Times New Roman" size="12.0" />
+            </font>
+        </Button>
+        <Button layoutX="412.0" layoutY="86.0" mnemonicParsing="false" onAction="#handleClothesAction" prefHeight="27.0" prefWidth="77.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 1px 1px 1px 1px;" styleClass="addphoto-button" stylesheets="@buttonstyle.css" text="Clothes" textFill="DARKSLATEGRAY">
+            <font>
+                <Font name="Times New Roman" size="12.0" />
+            </font>
+        </Button>
+        <Button layoutX="489.0" layoutY="86.0" mnemonicParsing="false" onAction="#handleCarsAction" prefHeight="27.0" prefWidth="77.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 1px 1px 1px 1px;" styleClass="addphoto-button" stylesheets="@buttonstyle.css" text="Cars" textFill="DARKSLATEGRAY">
+            <font>
+                <Font name="Times New Roman" size="12.0" />
+            </font>
+        </Button>
+      <Button layoutX="379.0" layoutY="35.0" mnemonicParsing="false" onAction="#goToListFeedback" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Feedback" textFill="DARKSLATEGRAY">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>
