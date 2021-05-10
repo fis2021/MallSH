@@ -2,7 +2,6 @@ package userr.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -11,13 +10,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.dizitart.no2.objects.ObjectRepository;
 import userr.model.Ad;
-import userr.services.AdService;
-import userr.services.MyAdsService;
+import userr.model.Feedback;
 import userr.model.User;
-import javafx.scene.text.Text;
+import userr.services.FeedbackService;
+import userr.services.MyAdsService;
 import userr.services.UserService;
 
 
@@ -25,19 +25,18 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
-public class MyAdsController {
-
+public class ListFeedbackController {
     private static String loggedUser;
-    private static ObjectRepository<Ad> adRepository = AdService.getAdRepository();
+    private static ObjectRepository<Feedback> feedbackRepository = FeedbackService.getFeedbackRepository();
     private static ObjectRepository<User> userRepository = UserService.getUsers();
     @FXML
-    public ListView<String> mytitle = new ListView<>();
-    public ListView<String> myprice = new ListView<>();
-    public ListView<String> mydescription = new ListView<>();
-    public ListView<String> mycategory = new ListView<>();
-    public ListView<String> myname = new ListView<>();
+    public ListView<String> username = new ListView<>();
+    public ListView<String> feedback = new ListView<>();
+    public ListView<String> rate = new ListView<>();
     @FXML
     private Text Account;
+    @FXML
+    private Text media;
     @FXML
     private ImageView imageView;
     @FXML
@@ -47,9 +46,9 @@ public class MyAdsController {
     public void initialize() throws IOException {
         loggedUser = LoginController.getLoggedUsername();
         Account.setText("Logged in as: " + loggedUser);
-        for(User user: userRepository.find())
-            if(Objects.equals(loggedUser,user.getUsername())) {
-                user1=user;
+        for (User user : userRepository.find())
+            if (Objects.equals(loggedUser, user.getUsername())) {
+                user1 = user;
             }
         if(user1.getPhotoPath()==null)
         {
@@ -61,7 +60,6 @@ public class MyAdsController {
             imageView.setFitHeight(175);
             imageView.setFitWidth(125);
             imageView.rotateProperty();
-
         }
         else {
             File file = new File(user1.getPhotoPath());
@@ -72,48 +70,45 @@ public class MyAdsController {
             imageView.setFitWidth(125);
             imageView.rotateProperty();
         }
-        ObservableList<String> i = FXCollections.observableArrayList ();
-        for (Ad ad : adRepository.find()) {
-            if( MyAdsService.checkIfMyAd(ad,loggedUser)){
-                i.add(ad.getTitle());
-                mytitle.setItems(i);
-            }
+        ObservableList<String> i = FXCollections.observableArrayList();
+        for (Feedback fb : feedbackRepository.find()) {
+            i.add(fb.getLoggedUser());
+            username.setItems(i);
+
         }
-        ObservableList<String> j = FXCollections.observableArrayList ();
-        for (Ad ad : adRepository.find()) {
-            if( MyAdsService.checkIfMyAd(ad,loggedUser)){
-                j.add(ad.getPrice());
-                myprice.setItems(j);
-            }
+        ObservableList<String> j = FXCollections.observableArrayList();
+        for (Feedback fb : feedbackRepository.find()) {
+            j.add(fb.getDescription());
+            feedback.setItems(j);
+
         }
-        ObservableList<String> k = FXCollections.observableArrayList ();
-        for (Ad ad : adRepository.find()) {
-            if( MyAdsService.checkIfMyAd(ad,loggedUser)){
-                k.add(ad.getDescription());
-                mydescription.setItems(k);
-            }
+        ObservableList<String> k = FXCollections.observableArrayList();
+        for (Feedback fb : feedbackRepository.find()) {
+            k.add(fb.getRate());
+            rate.setItems(k);
+
         }
-        ObservableList<String> l = FXCollections.observableArrayList ();
-        for (Ad ad : adRepository.find()) {
-            if( MyAdsService.checkIfMyAd(ad,loggedUser)){
-                if(ad.isAppliances()==true)
-                    l.add("Appliances");
-                else if(ad.isFurniture()==true)
-                    l.add("Furniture");
-                else if(ad.isClothes()==true)
-                    l.add("Clothes");
-                else if(ad.isCars()==true)
-                    l.add("Cars");
-                mycategory.setItems(l);
-            }
+        media.setText("Rating of the app: " + String.valueOf(mediaAritmetica()));
+    }
+    public float mediaAritmetica()
+    {
+        float s = 0,contor = 0;
+        for(Feedback fb: feedbackRepository.find())
+        {
+            s = s + Float.parseFloat(fb.getRate());
+            contor++;
         }
-        ObservableList<String> m = FXCollections.observableArrayList ();
-        for (Ad ad : adRepository.find()) {
-            if( MyAdsService.checkIfMyAd(ad,loggedUser)){
-                m.add(ad.getVusername());
-                myname.setItems(m);
-            }
-        }
+        return s/contor;
+    }
+    public void goToGiveFeedback(javafx.event.ActionEvent login) throws IOException {
+        FXMLLoader Loader = new FXMLLoader();
+        Loader.setLocation(getClass().getClassLoader().getResource("give_feedback.fxml"));
+        Parent viewuserLogin = Loader.load();
+        Scene Loginscene = new Scene(viewuserLogin, 650, 450);
+        Stage window = (Stage) ((Node) login.getSource()).getScene().getWindow();
+        window.setScene(Loginscene);
+        window.show();
+
     }
     @FXML
     public void minimizeWindow(javafx.event.ActionEvent min) {
@@ -125,16 +120,6 @@ public class MyAdsController {
         Stage window = (Stage) ((Node) close.getSource()).getScene().getWindow();
         window.close();
     }
-    public void goBackToLogin(javafx.event.ActionEvent login) throws IOException {
-        FXMLLoader Loader = new FXMLLoader();
-        Loader.setLocation(getClass().getClassLoader().getResource("user_login.fxml"));
-        Parent viewuserLogin = Loader.load();
-        Scene Loginscene = new Scene(viewuserLogin, 650, 450);
-        Stage window = (Stage) ((Node) login.getSource()).getScene().getWindow();
-        window.setScene(Loginscene);
-        window.show();
-
-    }
     public void goBackToHomepage(javafx.event.ActionEvent login) throws IOException {
         FXMLLoader Loader = new FXMLLoader();
         Loader.setLocation(getClass().getClassLoader().getResource("home_page.fxml"));
@@ -145,5 +130,15 @@ public class MyAdsController {
         window.show();
 
     }
+    @FXML
+    public void goBackToLogin(javafx.event.ActionEvent login) throws IOException {
+        FXMLLoader Loader = new FXMLLoader();
+        Loader.setLocation(getClass().getClassLoader().getResource("user_login.fxml"));
+        Parent viewuserLogin = Loader.load();
+        Scene Loginscene = new Scene(viewuserLogin, 650, 450);
+        Stage window = (Stage) ((Node) login.getSource()).getScene().getWindow();
+        window.setScene(Loginscene);
+        window.show();
 
+    }
 }

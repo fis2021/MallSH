@@ -52,14 +52,25 @@ public class HomepageController {
             if(Objects.equals(loggedUser,user.getUsername())) {
                 user1=user;
             }
-        File file = new File(user1.getPhotoPath());
-        String localUrl = file.toURI().toURL().toExternalForm();
-        Image profile = new Image(localUrl, false);
-        imageView.setImage(profile);
-        imageView.setFitHeight(175);
-        imageView.setFitWidth(125);
-        imageView.rotateProperty();
-
+        if(user1.getPhotoPath()==null) {
+            String pathUser = "src/main/resources/no_image.png";
+            File file = new File(pathUser);
+            String localUrl = file.toURI().toURL().toExternalForm();
+            Image profile = new Image(localUrl, false);
+            imageView.setImage(profile);
+            imageView.setFitHeight(175);
+            imageView.setFitWidth(125);
+            imageView.rotateProperty();
+        }
+        else {
+            File file = new File(user1.getPhotoPath());
+            String localUrl = file.toURI().toURL().toExternalForm();
+            Image profile = new Image(localUrl, false);
+            imageView.setImage(profile);
+            imageView.setFitHeight(175);
+            imageView.setFitWidth(125);
+            imageView.rotateProperty();
+        }
         ObservableList<String> a = FXCollections.observableArrayList();
         for (Ad ad : adRepository.find()) {
             {
@@ -347,6 +358,15 @@ public class HomepageController {
     public void goToSearch(javafx.event.ActionEvent login) throws IOException {
         FXMLLoader Loader = new FXMLLoader();
         Loader.setLocation(getClass().getClassLoader().getResource("search_ad.fxml"));
+        Parent viewSearch = Loader.load();
+        Scene Searchscene = new Scene(viewSearch, 650, 450);
+        Stage window = (Stage) ((Node) login.getSource()).getScene().getWindow();
+        window.setScene(Searchscene);
+        window.show();
+    }
+    public void goToListFeedback(javafx.event.ActionEvent login) throws IOException {
+        FXMLLoader Loader = new FXMLLoader();
+        Loader.setLocation(getClass().getClassLoader().getResource("feedback_list.fxml"));
         Parent viewSearch = Loader.load();
         Scene Searchscene = new Scene(viewSearch, 650, 450);
         Stage window = (Stage) ((Node) login.getSource()).getScene().getWindow();

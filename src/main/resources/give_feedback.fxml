@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userr.controllers.AddFeedbackController">
     <children>
         <Pane prefHeight="85.0" prefWidth="661.0" style="-fx-background-color: #20B2AA;">
             <children>
@@ -33,30 +33,30 @@
         </Pane>
         <HBox alignment="TOP_RIGHT" layoutX="450.0" prefHeight="35.0" prefWidth="200.0">
             <children>
-                <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="27.0" prefWidth="24.0" style="-fx-background-color: transparent;" text="_" textFill="#1c1c1d">
+                <Button fx:id="minimizeField" contentDisplay="TOP" mnemonicParsing="false" onAction="#minimizeWindow" prefHeight="27.0" prefWidth="24.0" style="-fx-background-color: transparent;" text="_" textFill="#1c1c1d">
                     <font>
                         <Font name="System Bold" size="11.0" />
                     </font>
                 </Button>
-                <Button contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="13.0" prefWidth="25.0" style="-fx-background-color: transparent;" text="x" textAlignment="CENTER" textFill="#181819" textOverrun="CLIP">
+                <Button fx:id="closeField" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#closeWindow" prefHeight="13.0" prefWidth="25.0" style="-fx-background-color: transparent;" text="x" textAlignment="CENTER" textFill="#181819" textOverrun="CLIP">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Button>
             </children>
         </HBox>
-        <TextField fx:id="titleField1" layoutX="139.0" layoutY="179.0" prefHeight="31.0" prefWidth="495.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+        <TextField fx:id="feedback" layoutX="139.0" layoutY="179.0" prefHeight="31.0" prefWidth="495.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
             <font>
                 <Font name="Times New Roman" size="15.0" />
             </font>
         </TextField>
-        <Button layoutX="521.0" layoutY="389.0" prefHeight="34.0" prefWidth="125.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Give Feedback" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
+        <Button layoutX="511.0" layoutY="389.0" onAction="#handleGiveFeedbackAdAction" prefHeight="34.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Give Feedback" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
             <font>
                 <Font name="Times New Roman" size="16.0" />
             </font>
         </Button>
         <Pane layoutY="85.0" prefHeight="12.0" prefWidth="661.0" style="-fx-background-color: #2F4F4F;" />
-        <Button layoutX="14.0" layoutY="389.0" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Back" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
+        <Button layoutX="14.0" layoutY="389.0" onAction="#goBackToHomepage" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Back" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
             <font>
                 <Font name="Times New Roman" size="16.0" />
             </font>
@@ -65,6 +65,11 @@
         <HBox prefHeight="100.0" prefWidth="200.0" />
         <Text layoutX="139.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rate:" wrappingWidth="173.33333333333337" />
         <Text layoutX="139.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your feedback:" wrappingWidth="173.33333333333337" />
-      <ChoiceBox layoutX="139.0" layoutY="248.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="RateBox" layoutX="139.0" layoutY="248.0" prefWidth="150.0" />
+      <Text fx:id="errorMessage" fill="#dd1212" layoutX="139.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="173.33333333333343">
+         <font>
+            <Font name="Times New Roman Italic" size="10.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>
