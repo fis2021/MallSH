@@ -29,7 +29,7 @@ public class FeedbackService {
 
     public static void addFeedback(String loggedUser,String description, String rate) throws FieldNotCompletedException, FeedbackAlreadyExistsException
     {
-        checkAllFieldCompleted(description);
+        checkAllFieldCompleted(description,rate);
         checkUniqueFeedback(loggedUser);
         feedbackRepository.insert(new Feedback(loggedUser, description,rate));
     }
@@ -46,11 +46,14 @@ public class FeedbackService {
 
 
 
-    public static void checkAllFieldCompleted(String description) throws FieldNotCompletedException {
-        if (description.trim().isEmpty())
-        {
+    public static void checkAllFieldCompleted(String description,String rate) throws FieldNotCompletedException {
+        if (description.trim().isEmpty() ||( !(Objects.equals(rate,"0")) && !(Objects.equals(rate,"1")) && !(Objects.equals(rate,"2")) &&
+                !(Objects.equals(rate,"3")) && !(Objects.equals(rate,"4"))&& !(Objects.equals(rate,"5"))
+                        && !(Objects.equals(rate,"6")) && !(Objects.equals(rate,"7")) && !(Objects.equals(rate,"8"))
+                        && !(Objects.equals(rate,"9"))))
+
             throw new FieldNotCompletedException();
-        }
+
     }
 
 
