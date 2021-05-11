@@ -47,7 +47,7 @@ public class FeedbackService {
 
 
     public static void checkAllFieldCompleted(String description,String rate) throws FieldNotCompletedException {
-        if (description.trim().isEmpty() ||( !(Objects.equals(rate,"0")) && !(Objects.equals(rate,"1")) && !(Objects.equals(rate,"2")) &&
+        if (description.trim().isEmpty() ||( !(Objects.equals(rate,"10")) && !(Objects.equals(rate,"1")) && !(Objects.equals(rate,"2")) &&
                 !(Objects.equals(rate,"3")) && !(Objects.equals(rate,"4"))&& !(Objects.equals(rate,"5"))
                         && !(Objects.equals(rate,"6")) && !(Objects.equals(rate,"7")) && !(Objects.equals(rate,"8"))
                         && !(Objects.equals(rate,"9"))))
