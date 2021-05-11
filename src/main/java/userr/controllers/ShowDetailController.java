@@ -49,15 +49,26 @@ public class ShowDetailController {
     Text about;
     @FXML
     Text NotFavMessage;
+    @FXML
+    Text phone;
 
     @FXML
     public static Ad ad1 = new Ad();
     @FXML
     public void initialize() throws IOException {
         about.setText(SearchDetailController.ad1.getDescription());
+        for(User user : userRepository.find()){
+            if(Objects.equals(SearchDetailController.ad1.getVusername(),user.getUsername())){
+                phone.setText(user.getPhonenumber());
+            }
+        }
         for(Ad ad : favAdRepo.find()) {
             if (Objects.equals(LoginController.getLoggedUsername(), ad.getOwnUsername()) && Objects.equals(ad.isFavorite(), true)
                     && Objects.equals(ad.getVusername(),SearchDetailController.ad1.getVusername()) && Objects.equals(ad.getTitle(),SearchDetailController.ad1.getTitle())) {
+                ad1.setFavorite(ad.isFavorite());
+                ad1.setOwnUsername(LoginController.getLoggedUsername());
+                ad1.setVusername(ad.getVusername());
+                ad1.setTitle(ad.getTitle());
                 saveAdPicture();
             }
         }
@@ -98,8 +109,9 @@ public class ShowDetailController {
     }
     public void handleSaveAdAction() throws IOException {
             loggedUser = LoginController.getLoggedUsername();
-            if(!Objects.equals(Title.getText(),ad1.getTitle()) || !Objects.equals(loggedUser,ad1.getOwnUsername())
-                    || !Objects.equals(User.getText(),ad1.getVusername()))
+            if((!Objects.equals(Title.getText(),ad1.getTitle()) || !Objects.equals(loggedUser,ad1.getOwnUsername())
+                    || !Objects.equals(User.getText(),ad1.getVusername())) &&
+                    ((!Objects.equals(ad1.getOwnUsername(),null)) && !Objects.equals(ad1.getVusername(),null) && !Objects.equals(ad1.getTitle(),null)))
             {
                 ad1.setFavorite(false);
             }
@@ -107,10 +119,9 @@ public class ShowDetailController {
                 if (Objects.equals(Title.getText(), ad.getTitle()) && Objects.equals(User.getText(), ad.getVusername()) && Objects.equals(ad1.isFavorite(), false)) {
                     ad1 = ad;
                     ad1.setOwnUsername(loggedUser);
-                    ad1.setFavorite(false);
                 }
             }
-            if (!Objects.equals(ad1.isFavorite(), false) && Objects.equals(ad1.getOwnUsername(), LoginController.getLoggedUsername())
+            if (Objects.equals(ad1.isFavorite(), true) && Objects.equals(ad1.getOwnUsername(), LoginController.getLoggedUsername())
                     && Objects.equals(ad1.getVusername(), User.getText()) && Objects.equals(ad1.getTitle(), Title.getText())) {
                 FavoriteAdService.deleteFavorite(loggedUser, ad1.getTitle(), ad1.getVusername());
                 ad1.setFavorite(false);
