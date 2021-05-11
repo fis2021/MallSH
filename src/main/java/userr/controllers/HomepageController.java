@@ -432,6 +432,15 @@ public class HomepageController {
         window.setScene(Searchscene);
         window.show();
     }
+    public void goToListFavorite(javafx.event.ActionEvent login) throws IOException {
+        FXMLLoader Loader = new FXMLLoader();
+        Loader.setLocation(getClass().getClassLoader().getResource("favorite_list.fxml"));
+        Parent viewSearch = Loader.load();
+        Scene Searchscene = new Scene(viewSearch, 650, 450);
+        Stage window = (Stage) ((Node) login.getSource()).getScene().getWindow();
+        window.setScene(Searchscene);
+        window.show();
+    }
     public void minimizeWindow(javafx.event.ActionEvent min) {
         Stage window = (Stage) ((Node) min.getSource()).getScene().getWindow();
         window.setIconified(true);

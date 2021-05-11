@@ -52,6 +52,11 @@
                         <Font name="Times New Roman" size="14.0" />
                     </font>
                 </Button>
+            <Button layoutX="6.0" layoutY="359.0" mnemonicParsing="false" onAction="#goToListFeedback" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Feedback" textFill="DARKSLATEGRAY">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+            </Button>
             </children>
         </Pane>
         <HBox alignment="TOP_RIGHT" layoutX="450.0" prefHeight="35.0" prefWidth="200.0">
@@ -108,11 +113,11 @@
                 <Font name="Times New Roman" size="12.0" />
             </font>
         </Button>
-      <Button layoutX="379.0" layoutY="35.0" mnemonicParsing="false" onAction="#goToListFeedback" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Feedback" textFill="DARKSLATEGRAY">
+      <ListView fx:id="phone" layoutX="537.0" layoutY="158.0" prefHeight="275.0" prefWidth="97.0" />
+      <Button layoutX="359.0" layoutY="35.0" mnemonicParsing="false" onAction="#goToListFavorite" prefHeight="29.0" prefWidth="97.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="addphoto-button" stylesheets="@buttonstyle.css" text="FavoriteList" textFill="DARKSLATEGRAY">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
-      <ListView fx:id="phone" layoutX="537.0" layoutY="158.0" prefHeight="275.0" prefWidth="97.0" />
     </children>
 </AnchorPane>
