@@ -28,7 +28,11 @@
                         <Image url="@logo.png" />
                     </image>
                 </ImageView>
-            <Text fill="DARKSLATEGRAY" layoutX="34.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Listed by:" wrappingWidth="63.47004699707031" />
+            <Text fill="DARKSLATEGRAY" layoutX="6.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Listed by:" wrappingWidth="63.47004699707031">
+               <font>
+                  <Font name="Times New Roman" size="12.0" />
+               </font>
+            </Text>
             </children>
         </Pane>
         <HBox alignment="TOP_RIGHT" layoutX="450.0" prefHeight="35.0" prefWidth="200.0">
@@ -46,7 +50,7 @@
             </children>
         </HBox>
         <Pane layoutY="85.0" prefHeight="12.0" prefWidth="661.0" style="-fx-background-color: #2F4F4F;" />
-        <ImageView fx:id="Photopath" fitHeight="194.0" fitWidth="212.0" layoutX="234.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="Photopath" fitHeight="168.0" fitWidth="155.0" layoutX="23.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@AdPhoto_logo.png" />
             </image>
@@ -60,18 +64,13 @@
          <children>
               <HBox prefHeight="100.0" prefWidth="200.0" />
          </children></HBox>
-        <Text fx:id="about" fill="DARKSLATEGRAY" layoutX="116.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="533.4700469970703">
+        <Text fx:id="about" fill="DARKSLATEGRAY" layoutX="301.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="338.4700469970703">
          <font>
             <Font name="Times New Roman" size="24.0" />
          </font></Text>
-      <Text fx:id="Title" layoutX="116.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="504.4700469970703">
+      <Text fx:id="Title" fill="DARKSLATEGRAY" layoutX="116.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="504.4700469970703">
          <font>
             <Font name="Times New Roman" size="48.0" />
-         </font>
-      </Text>
-      <Text fx:id="User" fill="DARKSLATEGRAY" layoutX="14.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="259.4700469970703">
-         <font>
-            <Font size="14.0" />
          </font>
       </Text>
       <Button layoutX="519.0" layoutY="412.0" mnemonicParsing="false" onAction="#handleSaveAdAction" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Save as favorite" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
@@ -85,5 +84,20 @@
          </image>
       </ImageView>
       <Text fx:id="NotFavMessage" fill="#ff0000a8" layoutX="144.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="313.0" />
+      <Text fx:id="User" fill="DARKSLATEGRAY" layoutX="14.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="155.4700469970703">
+         <font>
+            <Font name="Times New Roman" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="phone" fill="DARKSLATEGRAY" layoutX="14.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="155.4700469970703">
+         <font>
+            <Font name="Times New Roman" size="13.0" />
+         </font>
+      </Text>
+      <Text fill="DARKSLATEGRAY" layoutX="7.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone:" wrappingWidth="63.47004699707031">
+         <font>
+            <Font name="Times New Roman" size="12.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>
