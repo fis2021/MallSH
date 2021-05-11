@@ -79,8 +79,8 @@
             <Font name="Times New Roman" size="20.0" />
          </font>
       </Text>
-      <ListView layoutX="483.0" layoutY="135.0" prefHeight="303.0" prefWidth="114.0" />
-      <Text fill="DARKSLATEGRAY" layoutX="474.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saved as favorite" textAlignment="CENTER" wrappingWidth="152.0">
+      <ListView fx:id="saved" layoutX="483.0" layoutY="135.0" prefHeight="303.0" prefWidth="114.0" />
+      <Text fill="DARKSLATEGRAY" layoutX="474.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saved by users" textAlignment="CENTER" wrappingWidth="152.0">
          <font>
             <Font name="Times New Roman" size="20.0" />
          </font>
