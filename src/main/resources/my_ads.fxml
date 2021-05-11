@@ -61,22 +61,28 @@
             </children>
         </HBox>
         <Pane layoutX="146.0" prefHeight="450.0" prefWidth="12.0" style="-fx-background-color: #2F4F4F;" />
-        <ListView fx:id="mytitle" layoutX="215.0" layoutY="135.0" prefHeight="303.0" prefWidth="156.0" />
-        <ListView fx:id="myprice" layoutX="370.0" layoutY="135.0" prefHeight="303.0" prefWidth="107.0" />
-        <ListView fx:id="mycategory" layoutX="477.0" layoutY="135.0" prefHeight="303.0" prefWidth="126.0" />
-      <Text fill="DARKSLATEGRAY" layoutX="219.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" textAlignment="CENTER" wrappingWidth="92.0">
+        <ListView fx:id="mytitle" layoutX="182.0" layoutY="135.0" prefHeight="303.0" prefWidth="107.0" />
+        <ListView fx:id="myprice" layoutX="289.0" layoutY="135.0" prefHeight="303.0" prefWidth="92.0" />
+        <ListView fx:id="mycategory" layoutX="380.0" layoutY="135.0" prefHeight="303.0" prefWidth="107.0" />
+      <Text fill="DARKSLATEGRAY" layoutX="190.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" textAlignment="CENTER" wrappingWidth="92.0">
          <font>
-            <Font name="Times New Roman" size="24.0" />
+            <Font name="Times New Roman" size="20.0" />
          </font>
       </Text>
-      <Text fill="DARKSLATEGRAY" layoutX="370.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" textAlignment="CENTER" wrappingWidth="92.0">
+      <Text fill="DARKSLATEGRAY" layoutX="289.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" textAlignment="CENTER" wrappingWidth="92.0">
          <font>
-            <Font name="Times New Roman" size="24.0" />
+            <Font name="Times New Roman" size="20.0" />
          </font>
       </Text>
-      <Text fill="DARKSLATEGRAY" layoutX="477.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category" textAlignment="CENTER" wrappingWidth="126.0">
+      <Text fill="DARKSLATEGRAY" layoutX="375.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category" textAlignment="CENTER" wrappingWidth="107.3333333333332">
          <font>
-            <Font name="Times New Roman" size="24.0" />
+            <Font name="Times New Roman" size="20.0" />
+         </font>
+      </Text>
+      <ListView fx:id="saved" layoutX="483.0" layoutY="135.0" prefHeight="303.0" prefWidth="114.0" />
+      <Text fill="DARKSLATEGRAY" layoutX="474.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saved by users" textAlignment="CENTER" wrappingWidth="152.0">
+         <font>
+            <Font name="Times New Roman" size="20.0" />
          </font>
       </Text>
     </children>

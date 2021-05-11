@@ -2,7 +2,6 @@ package userr.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -15,6 +14,7 @@ import javafx.stage.Stage;
 import org.dizitart.no2.objects.ObjectRepository;
 import userr.model.Ad;
 import userr.services.AdService;
+import userr.services.FavoriteAdService;
 import userr.services.MyAdsService;
 import userr.model.User;
 import javafx.scene.text.Text;
@@ -30,12 +30,13 @@ public class MyAdsController {
     private static String loggedUser;
     private static ObjectRepository<Ad> adRepository = AdService.getAdRepository();
     private static ObjectRepository<User> userRepository = UserService.getUsers();
+    private static ObjectRepository<Ad> favRepository = FavoriteAdService.getFavoriteRepository();
     @FXML
     public ListView<String> mytitle = new ListView<>();
     public ListView<String> myprice = new ListView<>();
-    public ListView<String> mydescription = new ListView<>();
     public ListView<String> mycategory = new ListView<>();
     public ListView<String> myname = new ListView<>();
+    public ListView<String> saved = new ListView<>();
     @FXML
     private Text Account;
     @FXML
@@ -47,12 +48,11 @@ public class MyAdsController {
     public void initialize() throws IOException {
         loggedUser = LoginController.getLoggedUsername();
         Account.setText("Logged in as: " + loggedUser);
-        for(User user: userRepository.find())
-            if(Objects.equals(loggedUser,user.getUsername())) {
-                user1=user;
+        for (User user : userRepository.find())
+            if (Objects.equals(loggedUser, user.getUsername())) {
+                user1 = user;
             }
-        if(user1.getPhotoPath()==null)
-        {
+        if (user1.getPhotoPath() == null) {
             String pathUser = "src/main/resources/no_image.png";
             File file = new File(pathUser);
             String localUrl = file.toURI().toURL().toExternalForm();
@@ -62,8 +62,7 @@ public class MyAdsController {
             imageView.setFitWidth(125);
             imageView.rotateProperty();
 
-        }
-        else {
+        } else {
             File file = new File(user1.getPhotoPath());
             String localUrl = file.toURI().toURL().toExternalForm();
             Image profile = new Image(localUrl, false);
@@ -72,49 +71,60 @@ public class MyAdsController {
             imageView.setFitWidth(125);
             imageView.rotateProperty();
         }
-        ObservableList<String> i = FXCollections.observableArrayList ();
+        ObservableList<String> i = FXCollections.observableArrayList();
         for (Ad ad : adRepository.find()) {
-            if( MyAdsService.checkIfMyAd(ad,loggedUser)){
+            if (MyAdsService.checkIfMyAd(ad, loggedUser)) {
                 i.add(ad.getTitle());
                 mytitle.setItems(i);
             }
         }
-        ObservableList<String> j = FXCollections.observableArrayList ();
+        ObservableList<String> j = FXCollections.observableArrayList();
         for (Ad ad : adRepository.find()) {
-            if( MyAdsService.checkIfMyAd(ad,loggedUser)){
+            if (MyAdsService.checkIfMyAd(ad, loggedUser)) {
                 j.add(ad.getPrice());
                 myprice.setItems(j);
             }
         }
-        ObservableList<String> k = FXCollections.observableArrayList ();
+        ObservableList<String> l = FXCollections.observableArrayList();
         for (Ad ad : adRepository.find()) {
-            if( MyAdsService.checkIfMyAd(ad,loggedUser)){
-                k.add(ad.getDescription());
-                mydescription.setItems(k);
-            }
-        }
-        ObservableList<String> l = FXCollections.observableArrayList ();
-        for (Ad ad : adRepository.find()) {
-            if( MyAdsService.checkIfMyAd(ad,loggedUser)){
-                if(ad.isAppliances()==true)
+            if (MyAdsService.checkIfMyAd(ad, loggedUser)) {
+                if (ad.isAppliances() == true)
                     l.add("Appliances");
-                else if(ad.isFurniture()==true)
+                else if (ad.isFurniture() == true)
                     l.add("Furniture");
-                else if(ad.isClothes()==true)
+                else if (ad.isClothes() == true)
                     l.add("Clothes");
-                else if(ad.isCars()==true)
+                else if (ad.isCars() == true)
                     l.add("Cars");
                 mycategory.setItems(l);
             }
         }
-        ObservableList<String> m = FXCollections.observableArrayList ();
+        ObservableList<String> m = FXCollections.observableArrayList();
         for (Ad ad : adRepository.find()) {
-            if( MyAdsService.checkIfMyAd(ad,loggedUser)){
+            if (MyAdsService.checkIfMyAd(ad, loggedUser)) {
                 m.add(ad.getVusername());
                 myname.setItems(m);
             }
         }
+
+        ObservableList<String> k = FXCollections.observableArrayList();
+        int contor = 0,ok;
+        for (Ad ad : adRepository.find()) {
+            if (MyAdsService.checkIfMyAd(ad, loggedUser)) {
+                contor=0;
+                for (Ad ad1 : favRepository.find()) {
+
+                    if (Objects.equals(ad1.getTitle(), ad.getTitle()) && Objects.equals(ad1.getVusername(), ad.getVusername()))
+                       contor++;
+                    ok=contor;
+                    
+                }
+                k.add(String.valueOf(contor));
+                saved.setItems(k);
+            }
+        }
     }
+
     @FXML
     public void minimizeWindow(javafx.event.ActionEvent min) {
         Stage window = (Stage) ((Node) min.getSource()).getScene().getWindow();
