@@ -42,6 +42,11 @@ public class FavoriteAdService {
         }
         favoriteRepository.remove(auxAd);
     }
+    public static boolean checkIfMyFavorite(Ad ad, String loggedUser) {
+        if(Objects.equals(ad.getOwnUsername(),loggedUser))
+            return true;
+        else return false;
+    }
 
     public static ObjectRepository<Ad>  getFavoriteRepository() {
         return favoriteRepository;
