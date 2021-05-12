@@ -45,25 +45,25 @@
                 </Button>
             </children>
         </HBox>
-        <PasswordField fx:id="passwordField" layoutX="225.0" layoutY="218.0" prefHeight="29.0" prefWidth="212.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+        <PasswordField fx:id="passwordField" id="password1" layoutX="225.0" layoutY="218.0" prefHeight="29.0" prefWidth="212.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
             <font>
                 <Font name="Times New Roman" size="13.0" />
             </font>
         </PasswordField>
         <Pane layoutY="85.0" prefHeight="12.0" prefWidth="661.0" style="-fx-background-color: #2F4F4F;" />
-        <Text fx:id="registrationMessage" fill="RED" layoutX="96.0" layoutY="439.0" wrappingWidth="394.0">
+        <Text fx:id="registrationMessage"  fill="RED" layoutX="96.0" layoutY="439.0" wrappingWidth="394.0">
             <font>
                 <Font name="Times New Roman Bold Italic" size="11.0" />
             </font>
         </Text>
-        <TextField fx:id="usernameField" alignment="TOP_LEFT" layoutX="225.0" layoutY="187.0" prefHeight="29.0" prefWidth="212.0" promptText="Username" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+        <TextField fx:id="usernameField" id="username1" alignment="TOP_LEFT" layoutX="225.0" layoutY="187.0" prefHeight="29.0" prefWidth="212.0" promptText="Username" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
             <font>
                 <Font name="Times New Roman" size="13.0" />
             </font>
         </TextField>
         <Pane layoutY="380.0" prefHeight="85.0" prefWidth="661.0" style="-fx-background-color: #20B2AA;" />
         <Pane layoutY="368.0" prefHeight="12.0" prefWidth="661.0" style="-fx-background-color: #2F4F4F;" />
-        <Button layoutX="225.0" layoutY="270.0" mnemonicParsing="false" onAction="#handleLoginAction" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Log In" textFill="DARKSLATEGRAY">
+        <Button layoutX="225.0" layoutY="270.0" mnemonicParsing="false" onAction="#handleLoginAction" id="loginbutton" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Log In" textFill="DARKSLATEGRAY">
             <font>
                 <Font name="Times New Roman" size="14.0" />
             </font>
@@ -73,12 +73,12 @@
                 <Font name="System Italic" size="10.0" />
             </font>
         </TextField>
-        <Button layoutX="323.0" layoutY="333.0" mnemonicParsing="false" onAction="#goBackToRegistration" prefHeight="29.0" prefWidth="74.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Register" textFill="DARKSLATEGRAY">
+        <Button layoutX="323.0" layoutY="333.0" mnemonicParsing="false" onAction="#goBackToRegistration" id="register" prefHeight="29.0" prefWidth="74.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Register" textFill="DARKSLATEGRAY">
             <font>
                 <Font name="Times New Roman" size="14.0" />
             </font>
         </Button>
-        <Text fx:id="loginMessage" fill="RED" layoutX="225.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="393.9999999999999">
+        <Text fx:id="loginMessage" id="LoginMessage" fill="RED" layoutX="225.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="393.9999999999999">
             <font>
                 <Font name="Times New Roman Italic" size="10.0" />
             </font>

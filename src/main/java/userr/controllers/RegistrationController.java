@@ -56,7 +56,6 @@ public class RegistrationController {
             UserService.addUser(usernameField.getText(), passwordField.getText(), passwordconfirmField.getText(),
                     firstnameField.getText(), secondnameField.getText(), phonenumberField.getText(),
                     addressField.getText(), path);
-            registrationMessage.setText("Account created successfully!");
             usernameField.clear();
             passwordField.clear();
             passwordconfirmField.clear();
