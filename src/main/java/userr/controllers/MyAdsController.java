@@ -15,7 +15,6 @@ import org.dizitart.no2.objects.ObjectRepository;
 import userr.model.Ad;
 import userr.services.AdService;
 import userr.services.FavoriteAdService;
-import userr.services.MyAdsService;
 import userr.model.User;
 import javafx.scene.text.Text;
 import userr.services.UserService;
@@ -73,21 +72,21 @@ public class MyAdsController {
         }
         ObservableList<String> i = FXCollections.observableArrayList();
         for (Ad ad : adRepository.find()) {
-            if (MyAdsService.checkIfMyAd(ad, loggedUser)) {
+            if (AdService.checkIfMyAd(ad, loggedUser)) {
                 i.add(ad.getTitle());
                 mytitle.setItems(i);
             }
         }
         ObservableList<String> j = FXCollections.observableArrayList();
         for (Ad ad : adRepository.find()) {
-            if (MyAdsService.checkIfMyAd(ad, loggedUser)) {
+            if (AdService.checkIfMyAd(ad, loggedUser)) {
                 j.add(ad.getPrice());
                 myprice.setItems(j);
             }
         }
         ObservableList<String> l = FXCollections.observableArrayList();
         for (Ad ad : adRepository.find()) {
-            if (MyAdsService.checkIfMyAd(ad, loggedUser)) {
+            if (AdService.checkIfMyAd(ad, loggedUser)) {
                 if (ad.isAppliances() == true)
                     l.add("Appliances");
                 else if (ad.isFurniture() == true)
@@ -101,7 +100,7 @@ public class MyAdsController {
         }
         ObservableList<String> m = FXCollections.observableArrayList();
         for (Ad ad : adRepository.find()) {
-            if (MyAdsService.checkIfMyAd(ad, loggedUser)) {
+            if (AdService.checkIfMyAd(ad, loggedUser)) {
                 m.add(ad.getVusername());
                 myname.setItems(m);
             }
@@ -110,7 +109,7 @@ public class MyAdsController {
         ObservableList<String> k = FXCollections.observableArrayList();
         int contor = 0,ok;
         for (Ad ad : adRepository.find()) {
-            if (MyAdsService.checkIfMyAd(ad, loggedUser)) {
+            if (AdService.checkIfMyAd(ad, loggedUser)) {
                 contor=0;
                 for (Ad ad1 : favRepository.find()) {
 

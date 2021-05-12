@@ -13,11 +13,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.dizitart.no2.objects.ObjectRepository;
-import userr.model.Ad;
 import userr.model.Feedback;
 import userr.model.User;
 import userr.services.FeedbackService;
-import userr.services.MyAdsService;
 import userr.services.UserService;
 
 
