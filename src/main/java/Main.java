@@ -1,12 +1,9 @@
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import userr.model.Feedback;
 import userr.services.AdService;
 import userr.services.FavoriteAdService;
 import userr.services.FeedbackService;
@@ -15,12 +12,12 @@ import userr.services.UserService;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        initDirectory();
         UserService.initDatabase();
         AdService.initDatabase();
         FavoriteAdService.initDatabase();
@@ -32,11 +29,7 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    private void initDirectory() {
-        Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;
-        if (!Files.exists(applicationHomePath))
-            applicationHomePath.toFile().mkdirs();
-    }
+
 
 
     public static void main(String[] args) {
