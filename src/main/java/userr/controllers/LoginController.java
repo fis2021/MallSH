@@ -42,7 +42,7 @@ public class LoginController {
     public void handleLoginAction(javafx.event.ActionEvent homepage) throws IOException {
         try {
             UserService.loginUser(usernameField.getText(), passwordField.getText());
-            loginMessage.setText("Login successfully!");
+            loginMessage.setText("");
             for (User user : getUsers().find()) {
                 if (Objects.equals(usernameField.getText(), user.getUsername())) {
                     this.loggedUsername = user.getUsername();

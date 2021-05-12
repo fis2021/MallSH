@@ -33,51 +33,51 @@
         </Pane>
         <HBox alignment="TOP_RIGHT" layoutX="450.0" prefHeight="35.0" prefWidth="200.0">
             <children>
-                <Button fx:id="minimizeField" contentDisplay="TOP" mnemonicParsing="false" onAction="#minimizeWindow" prefHeight="27.0" prefWidth="24.0" style="-fx-background-color: transparent;" text="_" textFill="#1c1c1d">
+                <Button fx:id="minimizeField" contentDisplay="TOP" mnemonicParsing="false" onAction="#minimizeWindow" id="minimize" prefHeight="27.0" prefWidth="24.0" style="-fx-background-color: transparent;" text="_" textFill="#1c1c1d">
                     <font>
                         <Font name="System Bold" size="11.0" />
                     </font>
                 </Button>
-                <Button fx:id="closeField" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#closeWindow" prefHeight="13.0" prefWidth="25.0" style="-fx-background-color: transparent;" text="x" textAlignment="CENTER" textFill="#181819" textOverrun="CLIP">
+                <Button fx:id="closeField" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#closeWindow" id="close" prefHeight="13.0" prefWidth="25.0" style="-fx-background-color: transparent;" text="x" textAlignment="CENTER" textFill="#181819" textOverrun="CLIP">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Button>
             </children>
         </HBox>
-        <TextField fx:id="usernameField" alignment="TOP_LEFT" layoutX="152.0" layoutY="256.0" prefHeight="29.0" prefWidth="310.0" promptText="*Username" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+        <TextField fx:id="usernameField" id="username" alignment="TOP_LEFT" layoutX="152.0" layoutY="256.0" prefHeight="29.0" prefWidth="310.0" promptText="*Username" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
             <font>
                 <Font name="Times New Roman" size="13.0" />
             </font>
         </TextField>
-        <PasswordField fx:id="passwordField" layoutX="153.0" layoutY="292.0" prefHeight="29.0" prefWidth="212.0" promptText="*Password" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+        <PasswordField fx:id="passwordField" id="password" layoutX="153.0" layoutY="292.0" prefHeight="29.0" prefWidth="212.0" promptText="*Password" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
             <font>
                 <Font name="Times New Roman" size="13.0" />
             </font>
         </PasswordField>
-        <PasswordField fx:id="passwordconfirmField" layoutX="392.0" layoutY="292.0" prefHeight="29.0" prefWidth="224.0" promptText="*Confirm password" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+        <PasswordField fx:id="passwordconfirmField" id="passwordconfirm" layoutX="392.0" layoutY="292.0" prefHeight="29.0" prefWidth="224.0" promptText="*Confirm password" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
             <font>
                 <Font name="Times New Roman" size="13.0" />
             </font>
         </PasswordField>
-        <TextField fx:id="firstnameField" layoutX="153.0" layoutY="131.0" prefHeight="29.0" prefWidth="212.0" promptText="*First Name" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+        <TextField fx:id="firstnameField" id="firstname" layoutX="153.0" layoutY="131.0" prefHeight="29.0" prefWidth="212.0" promptText="*First Name" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
             <font>
                 <Font name="Times New Roman" size="13.0" />
             </font>
         </TextField>
-        <TextField fx:id="secondnameField" layoutX="392.0" layoutY="132.0" prefHeight="27.0" prefWidth="224.0" promptText="*Second Name" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+        <TextField fx:id="secondnameField" id="secondname" layoutX="392.0" layoutY="132.0" prefHeight="27.0" prefWidth="224.0" promptText="*Second Name" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
             <font>
                 <Font name="Times New Roman" size="13.0" />
             </font></TextField>
-        <TextField fx:id="phonenumberField" alignment="TOP_LEFT" layoutX="153.0" layoutY="218.0" prefHeight="27.0" prefWidth="212.0" promptText="*Phone Number" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+        <TextField fx:id="phonenumberField" id="phone" alignment="TOP_LEFT" layoutX="153.0" layoutY="218.0" prefHeight="27.0" prefWidth="212.0" promptText="*Phone Number" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
             <font>
                 <Font name="Times New Roman" size="13.0" />
             </font></TextField>
-        <TextField fx:id="addressField" alignment="TOP_LEFT" layoutX="152.0" layoutY="175.0" prefHeight="27.0" prefWidth="465.0" promptText="Adress" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+        <TextField fx:id="addressField" id="adress" alignment="TOP_LEFT" layoutX="152.0" layoutY="175.0" prefHeight="27.0" prefWidth="465.0" promptText="Adress" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
             <font>
                 <Font name="Times New Roman" size="13.0" />
             </font></TextField>
-        <Button layoutX="561.0" layoutY="389.0" onAction="#handleRegisterAction" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Register" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
+        <Button layoutX="561.0" layoutY="389.0" onAction="#handleRegisterAction" id="buttonRegister" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Register" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
             <font>
                 <Font name="Times New Roman" size="16.0" />
             </font>
@@ -88,22 +88,22 @@
             </font>
         </TextField>
         <Pane layoutY="85.0" prefHeight="12.0" prefWidth="661.0" style="-fx-background-color: #2F4F4F;" />
-        <ImageView fx:id="photoPath" fitHeight="150.0" fitWidth="112.0" layoutX="14.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="photoPath" id="photopath" fitHeight="150.0" fitWidth="112.0" layoutX="14.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@user_registration.png" />
             </image>
         </ImageView>
-        <Button layoutX="27.0" layoutY="223.0" onAction="#handleAddPhoto" prefHeight="18.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="addphoto-button" stylesheets="@buttonstyle.css" text="Add profile picture" textAlignment="CENTER" textFill="DARKSLATEGRAY">
+        <Button layoutX="27.0" layoutY="223.0" onAction="#handleAddPhoto" id="buttonAdPhoto" prefHeight="18.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="addphoto-button" stylesheets="@buttonstyle.css" text="Add profile picture" textAlignment="CENTER" textFill="DARKSLATEGRAY">
             <font>
                 <Font name="Times New Roman" size="9.0" />
             </font>
         </Button>
-        <Text fx:id="registrationMessage" fill="RED" layoutX="96.0" layoutY="439.0" wrappingWidth="394.0">
+        <Text fx:id="registrationMessage" id="registermessage" fill="RED" layoutX="96.0" layoutY="439.0" wrappingWidth="394.0">
             <font>
                 <Font name="Times New Roman Bold Italic" size="11.0" />
             </font>
         </Text>
-        <Button layoutX="14.0" layoutY="389.0" onAction="#goBackToLogin" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Back" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
+        <Button layoutX="14.0" layoutY="389.0" onAction="#goBackToLogin" id="buttonBackLogin" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Back" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
             <font>
                 <Font name="Times New Roman" size="16.0" />
             </font>

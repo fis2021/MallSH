@@ -2,7 +2,6 @@ package userr.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -16,7 +15,6 @@ import org.dizitart.no2.objects.ObjectRepository;
 import userr.model.Ad;
 import userr.services.AdService;
 import userr.services.FavoriteAdService;
-import userr.services.MyAdsService;
 import userr.model.User;
 import javafx.scene.text.Text;
 import userr.services.UserService;

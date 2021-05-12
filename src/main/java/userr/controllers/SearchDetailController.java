@@ -6,31 +6,19 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import org.dizitart.no2.NitriteId;
 import org.dizitart.no2.objects.ObjectRepository;
-import userr.exceptions.DuplicatedAdException;
 import userr.exceptions.FieldNotCompletedException;
 import userr.exceptions.TitleDoesNotMatchException;
 import userr.exceptions.WrongUsernameException;
 import userr.model.Ad;
 import userr.model.User;
 import userr.services.AdService;
-import userr.services.MyAdsService;
 import userr.services.UserService;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.Objects;
-import userr.model.Ad;
-import javafx.scene.image.ImageView;
-
-
-import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 public class SearchDetailController {
     private String loggedUser;
