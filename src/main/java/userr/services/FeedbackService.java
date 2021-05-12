@@ -10,6 +10,7 @@ import userr.model.Feedback;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Objects;
 import userr.exceptions.FieldNotCompletedException;
 
@@ -18,14 +19,18 @@ import static userr.services.FileSystemService.getPathToFile;
 public class FeedbackService {
 
     private static ObjectRepository<Feedback> feedbackRepository = FeedbackService.getFeedbackRepository();
+    private static Nitrite database;
 
     public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
+        FileSystemService.initDirectory();
+         database = Nitrite.builder()
                 .filePath(getPathToFile("feedback_database.db").toFile())
                 .openOrCreate("test", "test");
         feedbackRepository = database.getRepository(Feedback.class);
     }
-
+    public static List<Feedback> getAllFeedbacks(){
+        return feedbackRepository.find().toList();
+    }
 
     public static void addFeedback(String loggedUser,String description, String rate) throws FieldNotCompletedException, FeedbackAlreadyExistsException
     {
@@ -70,6 +75,8 @@ public class FeedbackService {
     public static ObjectRepository<Feedback>  getFeedbackRepository() {
         return feedbackRepository;
     }
-
+    public static Nitrite getDatabase() {
+        return database;
+    }
 }
 
