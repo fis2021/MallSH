@@ -9,6 +9,7 @@ import userr.exceptions.FieldNotCompletedException;
 import userr.exceptions.TitleDoesNotMatchException;
 import userr.exceptions.WrongUsernameException;
 import userr.model.Ad;
+import userr.model.User;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -19,9 +20,9 @@ import static userr.services.FileSystemService.getPathToFile;
 public class AdService {
 
     private static ObjectRepository<Ad> adRepository = AdService.getAdRepository();
-
+    private static Nitrite database;
     public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
+        database = Nitrite.builder()
                 .filePath(getPathToFile("ad_database.db").toFile())
                 .openOrCreate("test", "test");
         adRepository = database.getRepository(Ad.class);
@@ -34,6 +35,13 @@ public class AdService {
         checkAllFieldCompleted(price,title, description, appliances, clothes, cars, furniture);
         checkDuplicateAd(title,vusername);
         adRepository.insert(new Ad(id,price,title, description, appliances, clothes, cars, furniture, photoPath, vusername));
+    }
+    private static ObjectRepository<User> userRepository = UserService.getUsers();
+
+    public static boolean checkIfMyAd(Ad ad, String loggedUser) {
+        if(Objects.equals(ad.getVusername(),loggedUser))
+            return true;
+        else return false;
     }
     public static void checkDuplicateAd(String title, String username) throws DuplicatedAdException
     {
@@ -145,6 +153,8 @@ public class AdService {
     public static ObjectRepository<Ad>  getAdRepository() {
         return adRepository;
     }
-
+    public static Nitrite getDatabase() {
+        return database;
+    }
 }
 

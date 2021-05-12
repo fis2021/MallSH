@@ -11,6 +11,7 @@ import userr.model.User;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 
+import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -23,15 +24,19 @@ import static userr.services.FileSystemService.getPathToFile;
 public class UserService {
 
     private static ObjectRepository<User> userRepository;
+    private static Nitrite database;
 
     public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
+        FileSystemService.initDirectory();
+        database = Nitrite.builder()
                 .filePath(getPathToFile("users_database.db").toFile())
                 .openOrCreate("test", "test");
 
         userRepository = database.getRepository(User.class);
     }
-
+    public static List<User> getAllUsers(){
+        return userRepository.find().toList();
+    }
     public static void addUser(String username, String password, String passwordconfirm, String firstname,
                                String secondname, String phonenumber, String address,String photoPath)  throws UsernameAlreadyExistsException,FieldNotCompletedException, WeakPasswordException, PasswordConfirmationException {
         checkUserDoesNotAlreadyExist(username);
@@ -40,7 +45,7 @@ public class UserService {
         checkPasswordsMach(password, passwordconfirm);
         userRepository.insert(new User(username, encodePassword(username, password),encodePassword(username, passwordconfirm), firstname, secondname, phonenumber, address, photoPath));
     }
-    public static void loginUser(String username, String password) throws UsernameDoesNotExistsException, WrongPasswordException {
+    public static void loginUser(String username, String password) throws UsernameDoesNotExistsException, WrongPasswordException,FieldNotCompletedException{
         checkUserDoesAlreadyExist(username);
         checkPassword(password,username);
     }
@@ -54,6 +59,11 @@ public class UserService {
                                               String secondname, String phonenumber) throws FieldNotCompletedException {
         if (username.trim().isEmpty() || password.trim().isEmpty()|| firstname.trim().isEmpty()||
                 passwordconfirm.trim().isEmpty()|| phonenumber.trim().isEmpty()|| secondname.trim().isEmpty()) {
+            throw new FieldNotCompletedException();
+        }
+    }
+    public static void checkAllFieldCompleted(String username, String password) throws FieldNotCompletedException {
+        if (username.trim().isEmpty() || password.trim().isEmpty()) {
             throw new FieldNotCompletedException();
         }
     }
@@ -103,7 +113,7 @@ public class UserService {
             throw new WrongPasswordException();
         }
     }
-    private static String encodePassword(String salt, String password) {
+     static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 
@@ -127,6 +137,9 @@ public class UserService {
     }
     public static ObjectRepository<User>  getUsers() {
         return userRepository;
+    }
+    public static Nitrite getDatabase() {
+        return database;
     }
 
 }

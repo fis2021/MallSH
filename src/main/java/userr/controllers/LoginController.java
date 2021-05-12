@@ -66,6 +66,10 @@ public class LoginController {
             loginMessage.setText(e.getMessage());
             passwordField.clear();
         }
+        catch (FieldNotCompletedException e) {
+            loginMessage.setText(e.getMessage());
+            passwordField.clear();
+        }
     }
     public void goBackToRegistration(javafx.event.ActionEvent register) throws IOException {
         FXMLLoader Loader = new FXMLLoader();
