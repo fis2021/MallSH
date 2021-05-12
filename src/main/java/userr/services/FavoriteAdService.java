@@ -18,9 +18,9 @@ import static userr.services.FileSystemService.getPathToFile;
 public class FavoriteAdService {
 
     private static ObjectRepository<Ad> favoriteRepository = AdService.getAdRepository();
-
+private static Nitrite database;
     public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
+         database = Nitrite.builder()
                 .filePath(getPathToFile("favorite_database.db").toFile())
                 .openOrCreate("test", "test");
         favoriteRepository = database.getRepository(Ad.class);
@@ -50,5 +50,8 @@ public class FavoriteAdService {
 
     public static ObjectRepository<Ad>  getFavoriteRepository() {
         return favoriteRepository;
+    }
+    public static Nitrite getDatabase() {
+        return database;
     }
 }

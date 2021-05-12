@@ -37,35 +37,44 @@ class HomepageControllerTest {
         FileSystemService.initDirectory();
         FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
         AdService.initDatabase();
-        AdService.addAd("8","200","birou","veche",false,false,false,true,"","kristine",false);
+        AdService.addAd("8","200","birou","veche",false,false,false,true,"","kristine",true);
         AdService.addAd("9","1200","cuptor","noua",true,false,false,false,"","kristine",false);
-        AdService.addAd("10","2200","clio","noua",false,false,true,false,"","karina",false);
-        AdService.addAd("11","22","tricou","roz",false,true,false,false,"","karina",false);
+        AdService.addAd("10","2200","clio","noua",false,false,true,false,"","karina",true);
+        AdService.addAd("11","22","tricou","roz",false,true,false,false,"","karina",true);
         FileSystemService.APPLICATION_FOLDER = ".test-user-database";
         FileSystemService.initDirectory();
         FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
         UserService.initDatabase();
         UserService.addUser("kristine","Kristine17!","Kristine17!","Kristine","Senciuc","0744670830","Timisoara","");
         UserService.addUser("karina","Karina25!","Karina25!","Karina","Senciuc","0789123456","Timisoara","");
+        FileSystemService.APPLICATION_FOLDER = ".test-fav-database";
+        FileSystemService.initDirectory();
+        FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
+        FavoriteAdService.initDatabase();
+        FavoriteAdService.addFavorite("1","kristine","clio","karina",true);
+        FavoriteAdService.addFavorite("2","kristine","birou","kristine",true);
+        FavoriteAdService.addFavorite("3","karina","birou","kristine",true);
         String loggedUser = LoginController.getLoggedUsername();
-        loggedUser="kristine";
     }
 
     @AfterEach
     void tearDown() throws IOException {
         AdService.getDatabase().close();
         UserService.getDatabase().close();
+        FavoriteAdService.getDatabase().close();
     }
     @Start
     void start(Stage stage) throws IOException {
         AdService.initDatabase();
         UserService.initDatabase();
+        FavoriteAdService.initDatabase();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("user_login.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
         AdService.getDatabase().close();
         UserService.getDatabase().close();
+        FavoriteAdService.getDatabase().close();
     }
 
     @Test
@@ -81,5 +90,26 @@ class HomepageControllerTest {
         robot.clickOn("#clothes");
         robot.clickOn("#car");
         robot.clickOn("#all");
+        robot.clickOn("#buttonMyList");
+        robot.clickOn("#buttongotohomepage");
+        robot.clickOn("#buttonfavoritelist");
+        robot.clickOn("#buttontohome");
+        robot.clickOn("#logout");
+        robot.clickOn("#username1");
+        robot.write("karina");
+        robot.clickOn("#password1");
+        robot.write("Karina25!");
+        robot.clickOn("#loginbutton");
+        robot.clickOn("#all");
+        robot.clickOn("#appl");
+        robot.clickOn("#furniture");
+        robot.clickOn("#clothes");
+        robot.clickOn("#car");
+        robot.clickOn("#all");
+        robot.clickOn("#buttonMyList");
+        robot.clickOn("#buttongotohomepage");
+        robot.clickOn("#buttonfavoritelist");
+        robot.clickOn("#buttontohome");
+
     }
 }
