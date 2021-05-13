@@ -13,6 +13,7 @@ import userr.model.User;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Objects;
 
 import static userr.services.FileSystemService.getPathToFile;
@@ -150,6 +151,9 @@ public class AdService {
         return md;
     }
 
+    public static List<Ad> getAllAds(){
+        return adRepository.find().toList();
+    }
     public static ObjectRepository<Ad>  getAdRepository() {
         return adRepository;
     }
