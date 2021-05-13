@@ -29,13 +29,12 @@ class AdServiceTest {
 
     @AfterEach
     void tearDown() {
-
         AdService.getDatabase().close();
         UserService.getDatabase().close();
     }
 
     @Test
-    @DisplayName("Database is initialize, there are no users")
+    @DisplayName("Database is initialize, there are no ads")
     void DatabaseIsInitializeAndNoAdsArePersisted() {
         assertThat(AdService.getAllAds()).isNotNull();
         assertThat(AdService.getAllAds()).isEmpty();
