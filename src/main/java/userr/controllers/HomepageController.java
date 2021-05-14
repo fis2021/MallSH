@@ -146,6 +146,7 @@ public void initialize()
     @FXML
     public void handleAppliancesAction(javafx.event.ActionEvent appl) throws IOException {
 
+
         FXMLLoader Loader = new FXMLLoader();
         Loader.setLocation(getClass().getClassLoader().getResource("appl.fxml"));
         Parent viewhomepage = Loader.load();

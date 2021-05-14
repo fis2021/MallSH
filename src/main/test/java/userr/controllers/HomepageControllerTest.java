@@ -14,6 +14,8 @@ import org.testfx.api.FxRobot;
 import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
+import userr.exceptions.DuplicatedAdException;
+import userr.exceptions.FieldNotCompletedException;
 import userr.model.User;
 import userr.services.AdService;
 import userr.services.FavoriteAdService;
@@ -33,7 +35,7 @@ class HomepageControllerTest {
 
     @BeforeEach
     void setUp() throws Exception {
-        FileSystemService.APPLICATION_FOLDER = ".test-ad-database";
+        FileSystemService.APPLICATION_FOLDER = ".test-registration";
         FileSystemService.initDirectory();
         FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
         AdService.initDatabase();
@@ -41,24 +43,20 @@ class HomepageControllerTest {
         AdService.addAd("9","1200","cuptor","noua",true,false,false,false,"","kristine",false);
         AdService.addAd("10","2200","clio","noua",false,false,true,false,"","karina",true);
         AdService.addAd("11","22","tricou","roz",false,true,false,false,"","karina",true);
-        FileSystemService.APPLICATION_FOLDER = ".test-user-database";
-        FileSystemService.initDirectory();
-        FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
         UserService.initDatabase();
         UserService.addUser("kristine","Kristine17!","Kristine17!","Kristine","Senciuc","0744670830","Timisoara","");
         UserService.addUser("karina","Karina25!","Karina25!","Karina","Senciuc","0789123456","Timisoara","");
-        FileSystemService.APPLICATION_FOLDER = ".test-fav-database";
-        FileSystemService.initDirectory();
-        FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
-        FavoriteAdService.initDatabase();
+       FavoriteAdService.initDatabase();
         FavoriteAdService.addFavorite("1","kristine","clio","karina",true);
         FavoriteAdService.addFavorite("2","kristine","birou","kristine",true);
         FavoriteAdService.addFavorite("3","karina","birou","kristine",true);
         String loggedUser = LoginController.getLoggedUsername();
+        AdService.getDatabase().close();
     }
 
     @AfterEach
     void tearDown() throws IOException {
+
         AdService.getDatabase().close();
         UserService.getDatabase().close();
         FavoriteAdService.getDatabase().close();
@@ -78,17 +76,28 @@ class HomepageControllerTest {
     }
 
     @Test
-    void testlistOfAds(FxRobot robot) {
+    void testlistOfAds(FxRobot robot) throws DuplicatedAdException, FieldNotCompletedException {
+        AdService.initDatabase();
+        AdService.addAd("12","200","birouu","veche",false,false,false,true,"","kristine",true);
+        AdService.addAd("13","1200","cuptoru","noua",true,false,false,false,"","kristine",false);
+        AdService.addAd("14","2200","cliou","noua",false,false,true,false,"","karina",true);
+        AdService.addAd("15","22","tricouu","roz",false,true,false,false,"","karina",true);
+
         robot.clickOn("#username1");
         robot.write("kristine");
         robot.clickOn("#password1");
         robot.write("Kristine17!");
         robot.clickOn("#loginbutton");
         robot.clickOn("#all");
+        robot.clickOn("#home");
         robot.clickOn("#appl");
+        robot.clickOn("#home");
         robot.clickOn("#furniture");
+        robot.clickOn("#homee");
         robot.clickOn("#clothes");
+        robot.clickOn("#homee");
         robot.clickOn("#car");
+        robot.clickOn("#homee");
         robot.clickOn("#all");
         robot.clickOn("#buttonMyList");
         robot.clickOn("#buttongotohomepage");
@@ -101,10 +110,15 @@ class HomepageControllerTest {
         robot.write("Karina25!");
         robot.clickOn("#loginbutton");
         robot.clickOn("#all");
+        robot.clickOn("#home");
         robot.clickOn("#appl");
+        robot.clickOn("#home");
         robot.clickOn("#furniture");
+        robot.clickOn("#homee");
         robot.clickOn("#clothes");
+        robot.clickOn("#homee");
         robot.clickOn("#car");
+        robot.clickOn("#homee");
         robot.clickOn("#all");
         robot.clickOn("#buttonMyList");
         robot.clickOn("#buttongotohomepage");

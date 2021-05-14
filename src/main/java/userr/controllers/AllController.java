@@ -187,6 +187,7 @@ public class AllController {
         window.show();
     }
     public void goToHomePage(javafx.event.ActionEvent event) throws IOException {
+
         FXMLLoader Loader = new FXMLLoader();
         Loader.setLocation(getClass().getClassLoader().getResource("home_page.fxml"));
         Parent viewSearch = Loader.load();

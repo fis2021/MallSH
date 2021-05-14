@@ -27,6 +27,7 @@ import java.util.Objects;
 public class CarController {
 
     private static String loggedUser;
+
     private static ObjectRepository<Ad> adRepository = AdService.getAdRepository();
     private static ObjectRepository<User> userRepository = UserService.getUsers();
     private static ObjectRepository<Ad> favRepository = FavoriteAdService.getFavoriteRepository();

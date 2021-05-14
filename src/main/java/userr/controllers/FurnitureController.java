@@ -192,6 +192,7 @@ public class FurnitureController {
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(Searchscene);
         window.show();
+
     }
     public void minimizeWindow(javafx.event.ActionEvent min) {
         Stage window = (Stage) ((Node) min.getSource()).getScene().getWindow();

@@ -119,6 +119,7 @@
         <ListView fx:id="appl" layoutX="351.0" layoutY="158.0" prefHeight="275.0" prefWidth="103.0" />
         <Text fill="DARKSLATEGRAY" layoutX="351.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category" textAlignment="CENTER" wrappingWidth="103.0">
             <font>
+
                 <Font name="Times New Roman" size="22.0" />
             </font>
         </Text>

@@ -104,6 +104,7 @@ public class ClothesControllers {
                 nume.setItems(h);
             }
         }
+
         ObservableList<String> i = FXCollections.observableArrayList();
         for (Ad ad : adRepository.find()) {
             if (ad.isClothes() == true) {

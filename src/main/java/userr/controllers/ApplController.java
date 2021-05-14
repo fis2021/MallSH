@@ -53,6 +53,7 @@ public class ApplController {
             }
         if (user1.getPhotoPath() == null) {
             String pathUser = "src/main/resources/no_image.png";
+
             File file = new File(pathUser);
             String localUrl = file.toURI().toURL().toExternalForm();
             Image profile = new Image(localUrl, false);

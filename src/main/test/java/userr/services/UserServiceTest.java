@@ -1,20 +1,18 @@
 package userr.services;
 
 import org.apache.commons.io.FileUtils;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.testfx.api.FxToolkit;
 import userr.exceptions.*;
 import userr.model.User;
 
 import java.io.IOException;
+import java.util.concurrent.TimeoutException;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.testfx.assertions.api.Assertions.assertThat;
 
 class UserServiceTest {
-
 
     @BeforeEach
     void setUp() throws Exception {
@@ -56,18 +54,18 @@ class UserServiceTest {
     @Test
     @DisplayName("User cannot be added twice")
     void testUserCannotBeAddedTwice()  {
-       assertThrows(UsernameAlreadyExistsException.class,()->{
-           UserService.addUser("kris","Kristine17!","Kristine17!","Kristine","Senciuc","0744670830","Timisoara","aa");
-           UserService.addUser("kris","Kristine17!","Kristine17!","Kristine","Senciuc","0744670830","Timisoara","aa");
-       });
+        assertThrows(UsernameAlreadyExistsException.class,()->{
+            UserService.addUser("kris","Kristine17!","Kristine17!","Kristine","Senciuc","0744670830","Timisoara","aa");
+            UserService.addUser("kris","Kristine17!","Kristine17!","Kristine","Senciuc","0744670830","Timisoara","aa");
+        });
     }
     @Test
     @DisplayName("Username does not exists")
     public void testCheckUserDoesAlreadyExist() throws Exception {
-    assertThrows(UsernameDoesNotExistsException.class,()->{
-    UserService.addUser("kris","Kristine17!","Kristine17!","Kristine","Senciuc","0744670830","Timisoara","aa");
-    UserService.checkUserDoesAlreadyExist("kris1");
-     });
+        assertThrows(UsernameDoesNotExistsException.class,()->{
+            UserService.addUser("kris","Kristine17!","Kristine17!","Kristine","Senciuc","0744670830","Timisoara","aa");
+            UserService.checkUserDoesAlreadyExist("kris1");
+        });
     }
 
     @Test
