@@ -54,7 +54,7 @@
                         <Font name="Times New Roman" size="14.0" />
                     </font>
                 </Button>
-            <Button layoutX="6.0" layoutY="359.0" mnemonicParsing="false" onAction="#goToListFeedback" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Feedback" textFill="DARKSLATEGRAY">
+            <Button layoutX="6.0" layoutY="359.0" mnemonicParsing="false" onAction="#goToListFeedback" id="feedback" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Feedback" textFill="DARKSLATEGRAY">
                <font>
                   <Font name="Times New Roman" size="14.0" />
                </font>

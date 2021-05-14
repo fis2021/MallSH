@@ -122,6 +122,7 @@ public class MyAdsController {
                 saved.setItems(k);
             }
         }
+
     }
 
     @FXML

@@ -29,12 +29,12 @@
                         <Image url="@logo.png" />
                     </image>
                 </ImageView>
-                <Button layoutX="6.0" layoutY="378.0" mnemonicParsing="false" onAction="#goBackToHomepage" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Home Page" textFill="DARKSLATEGRAY">
+                <Button layoutX="6.0" layoutY="378.0" mnemonicParsing="false" onAction="#goBackToHomepage" id="home" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Home Page" textFill="DARKSLATEGRAY">
                     <font>
                         <Font name="Times New Roman" size="14.0" />
                     </font>
                 </Button>
-                <Button layoutX="6.0" layoutY="414.0" mnemonicParsing="false" onAction="#goBackToLogin" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Log Out" textFill="DARKSLATEGRAY">
+                <Button layoutX="6.0" layoutY="414.0" mnemonicParsing="false" onAction="#goBackToLogin" id="logout" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Log Out" textFill="DARKSLATEGRAY">
                     <font>
                         <Font name="Times New Roman" size="14.0" />
                     </font>
@@ -61,30 +61,30 @@
         <ListView fx:id="username" layoutX="215.0" layoutY="135.0" prefHeight="250.0" prefWidth="115.0" />
         <ListView fx:id="feedback" layoutX="330.0" layoutY="135.0" prefHeight="250.0" prefWidth="209.0" />
         <ListView fx:id="rate" layoutX="539.0" layoutY="135.0" prefHeight="250.0" prefWidth="64.0" />
-      <Button layoutX="492.0" layoutY="405.0" mnemonicParsing="false" onAction="#goToGiveFeedback" prefHeight="30.0" prefWidth="115.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Give Feedback" textFill="DARKSLATEGRAY">
-         <font>
-            <Font name="Times New Roman" size="14.0" />
-         </font>
-      </Button>
-      <Text fx:id="media" fill="DARKSLATEGRAY" layoutX="215.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="99.33333333333326">
-         <font>
-            <Font name="Times New Roman" size="12.0" />
-         </font>
-      </Text>
-      <Text fill="DARKSLATEGRAY" layoutX="215.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User" textAlignment="CENTER" wrappingWidth="115.0">
-         <font>
-            <Font name="Times New Roman" size="24.0" />
-         </font>
-      </Text>
-      <Text fill="DARKSLATEGRAY" layoutX="330.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feedback" textAlignment="CENTER" wrappingWidth="209.0">
-         <font>
-            <Font name="Times New Roman" size="24.0" />
-         </font>
-      </Text>
-      <Text fill="DARKSLATEGRAY" layoutX="533.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating" textAlignment="CENTER" wrappingWidth="76.0">
-         <font>
-            <Font name="Times New Roman" size="24.0" />
-         </font>
-      </Text>
+        <Button layoutX="492.0" layoutY="405.0" mnemonicParsing="false" onAction="#goToGiveFeedback" id="buttongotofb" prefHeight="30.0" prefWidth="115.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Give Feedback" textFill="DARKSLATEGRAY">
+            <font>
+                <Font name="Times New Roman" size="14.0" />
+            </font>
+        </Button>
+        <Text fx:id="media" fill="DARKSLATEGRAY" layoutX="215.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="99.33333333333326">
+            <font>
+                <Font name="Times New Roman" size="12.0" />
+            </font>
+        </Text>
+        <Text fill="DARKSLATEGRAY" layoutX="215.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User" textAlignment="CENTER" wrappingWidth="115.0">
+            <font>
+                <Font name="Times New Roman" size="24.0" />
+            </font>
+        </Text>
+        <Text fill="DARKSLATEGRAY" layoutX="330.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feedback" textAlignment="CENTER" wrappingWidth="209.0">
+            <font>
+                <Font name="Times New Roman" size="24.0" />
+            </font>
+        </Text>
+        <Text fill="DARKSLATEGRAY" layoutX="533.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating" textAlignment="CENTER" wrappingWidth="76.0">
+            <font>
+                <Font name="Times New Roman" size="24.0" />
+            </font>
+        </Text>
     </children>
 </AnchorPane>

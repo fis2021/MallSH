@@ -45,18 +45,18 @@
                 </Button>
             </children>
         </HBox>
-        <TextField fx:id="feedback" layoutX="139.0" layoutY="179.0" prefHeight="31.0" prefWidth="495.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+        <TextField fx:id="feedback" id="description" layoutX="139.0" layoutY="179.0" prefHeight="31.0" prefWidth="495.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
             <font>
                 <Font name="Times New Roman" size="15.0" />
             </font>
         </TextField>
-        <Button layoutX="511.0" layoutY="389.0" onAction="#handleGiveFeedbackAdAction" prefHeight="34.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Give Feedback" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
+        <Button layoutX="511.0" layoutY="389.0" onAction="#handleGiveFeedbackAdAction" id="givefb" prefHeight="34.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Give Feedback" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
             <font>
                 <Font name="Times New Roman" size="16.0" />
             </font>
         </Button>
         <Pane layoutY="85.0" prefHeight="12.0" prefWidth="661.0" style="-fx-background-color: #2F4F4F;" />
-        <Button layoutX="14.0" layoutY="389.0" onAction="#goBackToHomepage" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Back" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
+        <Button layoutX="14.0" layoutY="389.0" onAction="#goBackToHomepage" id="homepage" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Back" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
             <font>
                 <Font name="Times New Roman" size="16.0" />
             </font>
@@ -64,18 +64,18 @@
         <HBox prefHeight="100.0" prefWidth="200.0" />
         <HBox prefHeight="100.0" prefWidth="200.0" />
         <Text fill="DARKSLATEGRAY" layoutX="139.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rate:" wrappingWidth="173.33333333333337">
-         <font>
-            <Font name="Times New Roman" size="14.0" />
-         </font></Text>
+            <font>
+                <Font name="Times New Roman" size="14.0" />
+            </font></Text>
         <Text fill="DARKSLATEGRAY" layoutX="139.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your feedback:" wrappingWidth="173.33333333333337">
-         <font>
-            <Font name="Times New Roman" size="14.0" />
-         </font></Text>
-      <ChoiceBox fx:id="RateBox" layoutX="139.0" layoutY="248.0" prefWidth="150.0" />
-      <Text fx:id="errorMessage" fill="#dd1212" layoutX="139.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="173.33333333333343">
-         <font>
-            <Font name="Times New Roman Italic" size="10.0" />
-         </font>
-      </Text>
+            <font>
+                <Font name="Times New Roman" size="14.0" />
+            </font></Text>
+        <ChoiceBox fx:id="RateBox" id="rate" layoutX="139.0" layoutY="248.0" prefWidth="150.0" />
+        <Text fx:id="errorMessage" id="unique" fill="#dd1212" layoutX="139.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="173.33333333333343">
+            <font>
+                <Font name="Times New Roman Italic" size="10.0" />
+            </font>
+        </Text>
     </children>
 </AnchorPane>
