@@ -153,9 +153,5 @@ class LoginTest {
         robot.clickOn("#password1");
         robot.write("Kristine17!");
         robot.clickOn("#loginbutton");
-
-
-
-
     }
 }

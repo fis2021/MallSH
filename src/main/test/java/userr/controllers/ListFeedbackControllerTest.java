@@ -26,10 +26,10 @@ import static org.testfx.assertions.api.Assertions.assertThat;
 
 @ExtendWith(ApplicationExtension.class)
 class ListFeedbackControllerTest {
-    @AfterAll
+    /*@AfterAll
     static void afterAll() throws TimeoutException {
         FxToolkit.cleanupStages();
-    }
+    }*/
 
     @BeforeEach
     void setUp() throws Exception {

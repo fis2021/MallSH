@@ -42,11 +42,6 @@ public class HomepageController {
     private static ObjectRepository<Ad> adRepository = AdService.getAdRepository();
     private static ObjectRepository<User> userRepository = UserService.getUsers();
 
-public void initialize()
-{
-
-}
-
     public void initialize(javafx.event.ActionEvent allad) throws IOException {
 
         loggedUser = LoginController.getLoggedUsername();
@@ -131,10 +126,9 @@ public void initialize()
         window.setScene(homepagescene);
         window.show();
     }
+
     @FXML
     public void handleAllAction(javafx.event.ActionEvent allad) throws IOException{
-
-
         FXMLLoader Loader = new FXMLLoader();
         Loader.setLocation(getClass().getClassLoader().getResource("allad.fxml"));
         Parent viewhomepage = Loader.load();
@@ -145,8 +139,6 @@ public void initialize()
     }
     @FXML
     public void handleAppliancesAction(javafx.event.ActionEvent appl) throws IOException {
-
-
         FXMLLoader Loader = new FXMLLoader();
         Loader.setLocation(getClass().getClassLoader().getResource("appl.fxml"));
         Parent viewhomepage = Loader.load();
@@ -158,9 +150,6 @@ public void initialize()
     }
     @FXML
     public void handleFurnitureAction(javafx.event.ActionEvent homepage) throws IOException {
-
-
-
         FXMLLoader Loader = new FXMLLoader();
         Loader.setLocation(getClass().getClassLoader().getResource("furniture.fxml"));
         Parent viewhomepage = Loader.load();
@@ -171,9 +160,6 @@ public void initialize()
     }
     @FXML
     public void handleClothesAction(javafx.event.ActionEvent homepage) throws IOException {
-
-
-
         FXMLLoader Loader = new FXMLLoader();
         Loader.setLocation(getClass().getClassLoader().getResource("clothes.fxml"));
         Parent viewhomepage = Loader.load();
@@ -184,7 +170,6 @@ public void initialize()
     }
     @FXML
     public void handleCarsAction(javafx.event.ActionEvent homepage) throws IOException {
-
         FXMLLoader Loader = new FXMLLoader();
         Loader.setLocation(getClass().getClassLoader().getResource("car.fxml"));
         Parent viewhomepage = Loader.load();

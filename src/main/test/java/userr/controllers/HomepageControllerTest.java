@@ -56,7 +56,6 @@ class HomepageControllerTest {
 
     @AfterEach
     void tearDown() throws IOException {
-
         AdService.getDatabase().close();
         UserService.getDatabase().close();
         FavoriteAdService.getDatabase().close();
