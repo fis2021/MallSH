@@ -10,6 +10,7 @@ import userr.model.Ad;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Objects;
 
 import static userr.services.FileSystemService.getPathToFile;
@@ -48,6 +49,9 @@ private static Nitrite database;
         else return false;
     }
 
+    public static List<Ad> getAllFavAds(){
+        return favoriteRepository.find().toList();
+    }
     public static ObjectRepository<Ad>  getFavoriteRepository() {
         return favoriteRepository;
     }
