@@ -43,8 +43,7 @@ public class HomepageController {
     private static ObjectRepository<User> userRepository = UserService.getUsers();
 
     public void initialize(javafx.event.ActionEvent allad) throws IOException {
-
-        loggedUser = LoginController.getLoggedUsername();
+        /*loggedUser = LoginController.getLoggedUsername();
         Account.setText("Logged in as: " + loggedUser);
         for(User user: userRepository.find())
             if(Objects.equals(loggedUser,user.getUsername())) {
@@ -117,7 +116,7 @@ public class HomepageController {
                     }
                 }
 
-        }
+        }*/
         FXMLLoader Loader = new FXMLLoader();
         Loader.setLocation(getClass().getClassLoader().getResource("home_page.fxml"));
         Parent viewhomepage = Loader.load();

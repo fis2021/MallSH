@@ -66,7 +66,7 @@
                 <Image url="@AdPhoto_logo.png" />
             </image>
         </ImageView>
-        <Button layoutX="28.0" layoutY="120.0" onAction="#handleAddPhoto" prefHeight="18.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="addphoto-button" stylesheets="@buttonstyle.css" text="Add picture" textAlignment="CENTER" textFill="DARKSLATEGRAY">
+        <Button id="addPhoto" layoutX="28.0" layoutY="120.0" onAction="#handleAddPhoto" prefHeight="18.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="addphoto-button" stylesheets="@buttonstyle.css" text="Add picture" textAlignment="CENTER" textFill="DARKSLATEGRAY">
             <font>
                 <Font name="Times New Roman" size="9.0" />
             </font>
@@ -79,8 +79,8 @@
         <HBox prefHeight="100.0" prefWidth="200.0" />
         <CheckBox id="makeAppl" fx:id="appliancesBox" layoutX="169.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleCheckBoxAction" prefHeight="17.0" prefWidth="97.0" text="Appliances" />
         <CheckBox id="makeClt" fx:id="clothesBox" layoutX="288.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleCheckBoxAction" prefHeight="17.0" prefWidth="85.0" text="Clothes" />
-        <CheckBox fx:id="carsBox" layoutX="392.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleCheckBoxAction" prefHeight="17.0" prefWidth="73.0" text="Cars" />
-        <CheckBox fx:id="furnitureBox" layoutX="487.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleCheckBoxAction" prefHeight="17.0" prefWidth="97.0" text="Furniture" />
+        <CheckBox id="makeCar" fx:id="carsBox" layoutX="392.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleCheckBoxAction" prefHeight="17.0" prefWidth="73.0" text="Cars" />
+        <CheckBox id="makeFurn" fx:id="furnitureBox" layoutX="487.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleCheckBoxAction" prefHeight="17.0" prefWidth="97.0" text="Furniture" />
       <HBox prefHeight="100.0" prefWidth="200.0" />
       <TextField id="priceCreate" fx:id="priceField" layoutX="156.0" layoutY="251.0" prefHeight="28.0" prefWidth="134.0" promptText="*Price" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
          <font>

@@ -156,6 +156,12 @@ class LoginTest {
         robot.write("");
         robot.clickOn("#password1");
         robot.write("Kristine17!");
+
         robot.clickOn("#loginbutton");
+        robot.clickOn("#logout");
+        robot.clickOn("#register");
+        robot.clickOn("#buttonAdPhoto");
+
+
     }
 }

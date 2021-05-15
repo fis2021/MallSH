@@ -55,7 +55,7 @@
                 <Image url="@AdPhoto_logo.png" />
             </image>
         </ImageView>
-        <Button layoutX="14.0" layoutY="389.0" onAction="#goBackToSearch" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Back" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
+        <Button id="showBack" layoutX="14.0" layoutY="389.0" onAction="#goBackToSearch" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Back" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
             <font>
                 <Font name="Times New Roman" size="16.0" />
             </font>
@@ -73,7 +73,7 @@
             <Font name="Times New Roman" size="48.0" />
          </font>
       </Text>
-      <Button layoutX="519.0" layoutY="412.0" mnemonicParsing="false" onAction="#handleSaveAdAction" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Save as favorite" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
+      <Button id="saveButton" layoutX="519.0" layoutY="412.0" mnemonicParsing="false" onAction="#handleSaveAdAction" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Save as favorite" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
          <font>
             <Font name="Times New Roman" size="10.0" />
          </font>

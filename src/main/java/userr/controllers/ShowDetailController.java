@@ -30,15 +30,15 @@ import javafx.scene.image.ImageView;
 import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 public class ShowDetailController {
-    private String loggedUser;
-    private static ObjectRepository<Ad> adRepository = AdService.getAdRepository();
-    private static ObjectRepository<User> userRepository = UserService.getUsers();
-    private static ObjectRepository<Ad> favAdRepo = FavoriteAdService.getFavoriteRepository();
+    public String loggedUser;
+    public static ObjectRepository<Ad> adRepository = AdService.getAdRepository();
+    public static ObjectRepository<User> userRepository = UserService.getUsers();
+    public static ObjectRepository<Ad> favAdRepo = FavoriteAdService.getFavoriteRepository();
 
     @FXML
-    Text Title;
+     Text Title;
     @FXML
-    Text User;
+     Text User;
     @FXML
     ImageView Photopath;
 
@@ -46,14 +46,14 @@ public class ShowDetailController {
     ImageView savePath;
 
     @FXML
-    Text about;
+     Text about;
+
     @FXML
-    Text NotFavMessage;
-    @FXML
-    Text phone;
+     Text phone;
 
     @FXML
     public static Ad ad1 = new Ad();
+
     @FXML
     public void initialize() throws IOException {
         about.setText(SearchDetailController.ad1.getDescription());
@@ -97,7 +97,6 @@ public class ShowDetailController {
                 User.setText(SearchDetailController.ad1.getVusername());
             }
     }
-
     public void goBackToSearch(javafx.event.ActionEvent search) throws IOException {
         FXMLLoader Loader = new FXMLLoader();
         Loader.setLocation(getClass().getClassLoader().getResource("search_ad.fxml"));
@@ -134,7 +133,7 @@ public class ShowDetailController {
             }
     }
 
-    private void saveAdPicture() throws MalformedURLException {
+    void saveAdPicture() throws MalformedURLException {
         String pathUser = "src/main/resources/red_h.png";
         File file = new File(pathUser);
         String localUrl = file.toURI().toURL().toExternalForm();
