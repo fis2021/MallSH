@@ -104,4 +104,18 @@ class AdServiceTest {
             AdService.checkAllFieldCompleted("", "");
         });
     }
+
+    @Test
+    @DisplayName("Check if it is my ad")
+    void testCheckIfMyAd() throws FieldNotCompletedException, PasswordConfirmationException, UsernameAlreadyExistsException, WeakPasswordException, DuplicatedAdException {
+      UserService.addUser("kristine","Kristine17!","Kristine17!","Kristine","Senciuc","0744670830","timisoara","aa");
+        assertThat(UserService.getAllUsers()).isNotEmpty();
+        assertThat(UserService.getAllUsers()).size().isEqualTo(1);
+        User user = UserService.getAllUsers().get(0);
+      AdService.addAd("1","120","birou","nou",false,false,false,true,"0744670830","kristine",true);
+      assertThat(AdService.getAllAds()).isNotEmpty();
+      assertThat(AdService.getAllAds()).size().isEqualTo(1);
+      Ad ad = AdService.getAllAds().get(0);
+      AdService.checkIfMyAd(ad,user.getUsername());
+    }
 }
