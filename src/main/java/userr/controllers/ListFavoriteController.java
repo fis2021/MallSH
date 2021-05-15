@@ -71,6 +71,8 @@ public class ListFavoriteController {
             imageView.setFitWidth(125);
             imageView.rotateProperty();
         }
+
+
         ObservableList<String> i = FXCollections.observableArrayList ();
         for (Ad ad : favRepository.find()) {
             if( FavoriteAdService.checkIfMyFavorite(ad,loggedUser)){

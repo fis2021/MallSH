@@ -4,11 +4,13 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.api.FxRobot;
+import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 import userr.services.AdService;
@@ -16,12 +18,18 @@ import userr.services.FileSystemService;
 import userr.services.UserService;
 
 import java.io.IOException;
+import java.util.concurrent.TimeoutException;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.testfx.assertions.api.Assertions.assertThat;
 
 @ExtendWith(ApplicationExtension.class)
-class RegistrationTest {
+class LoginTest {
+    @AfterAll
+    static void afterAll() throws TimeoutException {
+        FxToolkit.cleanupStages();
+    }
+
     @AfterEach
     void tearDown() {
         UserService.getDatabase().close();
@@ -36,13 +44,13 @@ class RegistrationTest {
         AdService.initDatabase();
     }
     @Start
-   void start(Stage primaryStage) throws Exception {
-       Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("user_login.fxml"));
-       primaryStage.setTitle("Registration Example");
-       primaryStage.setScene(new Scene(root, 650, 450));
-       primaryStage.initStyle(StageStyle.TRANSPARENT);
-       primaryStage.show();
-   }
+    void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("user_login.fxml"));
+        primaryStage.setTitle("Registration Example");
+        primaryStage.setScene(new Scene(root, 650, 450));
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
+        primaryStage.show();
+    }
 
     @Test
     void testRegistration(FxRobot robot) {
@@ -148,8 +156,11 @@ class RegistrationTest {
         robot.write("");
         robot.clickOn("#password1");
         robot.write("Kristine17!");
-        robot.clickOn("#loginbutton");
 
+        robot.clickOn("#loginbutton");
+        robot.clickOn("#logout");
+        robot.clickOn("#register");
+        robot.clickOn("#buttonAdPhoto");
 
 
     }

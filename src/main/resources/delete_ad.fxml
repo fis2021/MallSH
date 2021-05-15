@@ -44,28 +44,28 @@
                 </Button>
             </children>
         </HBox>
-        <TextField fx:id="titleField1" layoutX="147.0" layoutY="178.0" prefHeight="31.0" prefWidth="162.0" promptText="*Title" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+        <TextField id="deleteTitle" fx:id="titleField1" layoutX="147.0" layoutY="178.0" prefHeight="31.0" prefWidth="162.0" promptText="*Title" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
             <font>
                 <Font name="Times New Roman" size="15.0" />
             </font>
         </TextField>
-        <Button layoutX="549.0" layoutY="389.0" onAction="#handleDeleteAdAction" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Delete Ad" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
+        <Button id="deleteHandle" layoutX="549.0" layoutY="389.0" onAction="#handleDeleteAdAction" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Delete Ad" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
             <font>
                 <Font name="Times New Roman" size="16.0" />
             </font>
         </Button>
         <Pane layoutY="85.0" prefHeight="12.0" prefWidth="661.0" style="-fx-background-color: #2F4F4F;" />
-        <Button layoutX="14.0" layoutY="389.0" onAction="#goBackToHomepage" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Back" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
+        <Button id="deleteHomepage" layoutX="14.0" layoutY="389.0" onAction="#goBackToHomepage" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Back" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
             <font>
                 <Font name="Times New Roman" size="16.0" />
             </font>
         </Button>
         <HBox prefHeight="100.0" prefWidth="200.0" />
         <HBox prefHeight="100.0" prefWidth="200.0" />
-        <Text fx:id="DeleteAdMessage" fill="#ff0000a8" layoutX="114.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="313.0" />
+        <Text id="deleteMsg" fx:id="DeleteAdMessage" fill="#ff0000a8" layoutX="114.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="313.0" />
       <Text layoutX="121.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter username for validation:" wrappingWidth="173.33333333333337" />
       <Text layoutX="147.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ad you want to delete:" wrappingWidth="173.33333333333337" />
-      <TextField fx:id="validationUsernameField" layoutX="139.0" layoutY="325.0" prefHeight="31.0" prefWidth="243.0" promptText="*Username Validation" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+      <TextField id="deleteUsername" fx:id="validationUsernameField" layoutX="139.0" layoutY="325.0" prefHeight="31.0" prefWidth="243.0" promptText="*Username Validation" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
          <font>
             <Font name="Times New Roman" size="15.0" />
          </font>

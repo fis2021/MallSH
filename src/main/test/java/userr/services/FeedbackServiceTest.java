@@ -47,7 +47,7 @@ class FeedbackServiceTest {
 
     @Test
     @DisplayName("Check unique feedback")
-    void testUniqueFeedback() throws FeedbackAlreadyExistsException, FieldNotCompletedException {
+    void TestUniqueFeedback() throws FeedbackAlreadyExistsException, FieldNotCompletedException {
         FeedbackService.addFeedback("kris","fain","9");
         assertThrows(FeedbackAlreadyExistsException.class,()->{
             FeedbackService.checkUniqueFeedback("kris");

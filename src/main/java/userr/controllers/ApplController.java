@@ -24,18 +24,18 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
-public class MyAdsController {
+public class ApplController {
 
     private static String loggedUser;
     private static ObjectRepository<Ad> adRepository = AdService.getAdRepository();
     private static ObjectRepository<User> userRepository = UserService.getUsers();
     private static ObjectRepository<Ad> favRepository = FavoriteAdService.getFavoriteRepository();
     @FXML
-    public ListView<String> mytitle = new ListView<>();
-    public ListView<String> myprice = new ListView<>();
-    public ListView<String> mycategory = new ListView<>();
-    public ListView<String> myname = new ListView<>();
-    public ListView<String> saved = new ListView<>();
+    public ListView<String> title = new ListView<>();
+    public ListView<String> price = new ListView<>();
+    public ListView<String> appl = new ListView<>();
+    public ListView<String> nume = new ListView<>();
+    public ListView<String> phone = new ListView<>();
     @FXML
     private Text Account;
     @FXML
@@ -53,6 +53,7 @@ public class MyAdsController {
             }
         if (user1.getPhotoPath() == null) {
             String pathUser = "src/main/resources/no_image.png";
+
             File file = new File(pathUser);
             String localUrl = file.toURI().toURL().toExternalForm();
             Image profile = new Image(localUrl, false);
@@ -70,71 +71,54 @@ public class MyAdsController {
             imageView.setFitWidth(125);
             imageView.rotateProperty();
         }
+        ObservableList<String> a = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                if (ad.isAppliances() == true)
+                    a.add(ad.getTitle());
+                title.setItems(a);
+            }
+        }
+        ObservableList<String> b = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                if (ad.isAppliances() == true)
+                    b.add(ad.getPrice());
+                price.setItems(b);
+            }
+        }
+
+        ObservableList<String> d = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                if (ad.isAppliances() == true)
+                    d.add("Appliances");
+                appl.setItems(d);
+            }
+        }
+
+        ObservableList<String> h = FXCollections.observableArrayList();
+        for (Ad ad : adRepository.find()) {
+            {
+                if (ad.isAppliances() == true)
+                    h.add(ad.getVusername());
+                nume.setItems(h);
+            }
+        }
         ObservableList<String> i = FXCollections.observableArrayList();
         for (Ad ad : adRepository.find()) {
-            if (AdService.checkIfMyAd(ad, loggedUser)) {
-                i.add(ad.getTitle());
-                mytitle.setItems(i);
-            }
-        }
-        ObservableList<String> j = FXCollections.observableArrayList();
-        for (Ad ad : adRepository.find()) {
-            if (AdService.checkIfMyAd(ad, loggedUser)) {
-                j.add(ad.getPrice());
-                myprice.setItems(j);
-            }
-        }
-        ObservableList<String> l = FXCollections.observableArrayList();
-        for (Ad ad : adRepository.find()) {
-            if (AdService.checkIfMyAd(ad, loggedUser)) {
-                if (ad.isAppliances() == true)
-                    l.add("Appliances");
-                else if (ad.isFurniture() == true)
-                    l.add("Furniture");
-                else if (ad.isClothes() == true)
-                    l.add("Clothes");
-                else if (ad.isCars() == true)
-                    l.add("Cars");
-                mycategory.setItems(l);
-            }
-        }
-        ObservableList<String> m = FXCollections.observableArrayList();
-        for (Ad ad : adRepository.find()) {
-            if (AdService.checkIfMyAd(ad, loggedUser)) {
-                m.add(ad.getVusername());
-                myname.setItems(m);
-            }
-        }
-
-        ObservableList<String> k = FXCollections.observableArrayList();
-        int contor = 0,ok;
-        for (Ad ad : adRepository.find()) {
-            if (AdService.checkIfMyAd(ad, loggedUser)) {
-                contor=0;
-                for (Ad ad1 : favRepository.find()) {
-
-                    if (Objects.equals(ad1.getTitle(), ad.getTitle()) && Objects.equals(ad1.getVusername(), ad.getVusername()))
-                       contor++;
-                    ok=contor;
-                    
+            if (ad.isAppliances() == true) {
+                for (User user : userRepository.find()) {
+                    if (Objects.equals(ad.getVusername(), user.getUsername())) {
+                        i.add(user.getPhonenumber());
+                        phone.setItems(i);
+                    }
                 }
-                k.add(String.valueOf(contor));
-                saved.setItems(k);
             }
         }
-
     }
 
     @FXML
-    public void minimizeWindow(javafx.event.ActionEvent min) {
-        Stage window = (Stage) ((Node) min.getSource()).getScene().getWindow();
-        window.setIconified(true);
-    }
-
-    public void closeWindow(javafx.event.ActionEvent close) {
-        Stage window = (Stage) ((Node) close.getSource()).getScene().getWindow();
-        window.close();
-    }
     public void goBackToLogin(javafx.event.ActionEvent login) throws IOException {
         FXMLLoader Loader = new FXMLLoader();
         Loader.setLocation(getClass().getClassLoader().getResource("user_login.fxml"));
@@ -145,15 +129,22 @@ public class MyAdsController {
         window.show();
 
     }
-    public void goBackToHomepage(javafx.event.ActionEvent login) throws IOException {
+    public void goToHomePage(javafx.event.ActionEvent event) throws IOException {
         FXMLLoader Loader = new FXMLLoader();
         Loader.setLocation(getClass().getClassLoader().getResource("home_page.fxml"));
-        Parent viewuserLogin = Loader.load();
-        Scene Loginscene = new Scene(viewuserLogin, 650, 450);
-        Stage window = (Stage) ((Node) login.getSource()).getScene().getWindow();
-        window.setScene(Loginscene);
+        Parent viewSearch = Loader.load();
+        Scene Searchscene = new Scene(viewSearch, 650, 450);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(Searchscene);
         window.show();
-
+    }
+    public void minimizeWindow(javafx.event.ActionEvent min) {
+        Stage window = (Stage) ((Node) min.getSource()).getScene().getWindow();
+        window.setIconified(true);
     }
 
+    public void closeWindow(javafx.event.ActionEvent close) {
+        Stage window = (Stage) ((Node) close.getSource()).getScene().getWindow();
+        window.close();
+    }
 }

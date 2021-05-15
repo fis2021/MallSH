@@ -44,29 +44,29 @@
                 </Button>
             </children>
         </HBox>
-        <Button layoutX="549.0" layoutY="389.0" onAction="#handleDetailsAction" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Display" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
+        <Button id="displayButton" layoutX="549.0" layoutY="389.0" onAction="#handleDetailsAction" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Display" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
             <font>
                 <Font name="Times New Roman" size="16.0" />
             </font>
         </Button>
         <Pane layoutY="85.0" prefHeight="12.0" prefWidth="661.0" style="-fx-background-color: #2F4F4F;" />
-        <Button layoutX="14.0" layoutY="389.0" onAction="#goBackToHomepage" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Back" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
+        <Button id="searchHomepage" layoutX="14.0" layoutY="389.0" onAction="#goBackToHomepage" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Back" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
             <font>
                 <Font name="Times New Roman" size="16.0" />
             </font>
         </Button>
         <HBox prefHeight="100.0" prefWidth="200.0" />
         <HBox prefHeight="100.0" prefWidth="200.0" />
-        <TextField fx:id="titleField" layoutX="151.0" layoutY="150.0" prefHeight="28.0" prefWidth="236.0" promptText="Title" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+        <TextField id="searchTitle" fx:id="titleField" layoutX="151.0" layoutY="150.0" prefHeight="28.0" prefWidth="236.0" promptText="Title" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
             <font>
                 <Font name="Times New Roman" size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="ownerField" layoutX="151.0" layoutY="178.0" prefHeight="29.0" prefWidth="236.0" promptText="Owner of ad(please enter its username)" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+        <TextField id="searchOwner" fx:id="ownerField" layoutX="151.0" layoutY="178.0" prefHeight="29.0" prefWidth="236.0" promptText="Owner of ad(please enter its username)" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
             <font>
                 <Font name="Times New Roman" size="14.0" />
             </font>
         </TextField>
-        <Text fx:id="AddAdMessage" fill="#ef1515" layoutX="151.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="236.0" />
+        <Text id="searchMsg" fx:id="AddAdMessage" fill="#ef1515" layoutX="151.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="236.0" />
     </children>
 </AnchorPane>

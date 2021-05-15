@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.dizitart.no2.objects.ObjectRepository;
@@ -17,6 +18,7 @@ import userr.model.User;
 import userr.services.AdService;
 import userr.services.UserService;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -42,15 +44,15 @@ public class SearchDetailController {
                     ad1 = ad;
                 }
             }
-                {
-                    FXMLLoader Loader = new FXMLLoader();
-                    Loader.setLocation(getClass().getClassLoader().getResource("details_ad.fxml"));
-                    Parent viewDetail = Loader.load();
-                    Scene Detailscene = new Scene(viewDetail, 650, 450);
-                    Stage window1 = (Stage) ((Node) details.getSource()).getScene().getWindow();
-                    window1.setScene(Detailscene);
-                    window1.show();
-                }
+            {
+                FXMLLoader Loader = new FXMLLoader();
+                Loader.setLocation(getClass().getClassLoader().getResource("details_ad.fxml"));
+                Parent viewDetail = Loader.load();
+                Scene Detailscene = new Scene(viewDetail, 650, 450);
+                Stage window1 = (Stage) ((Node) details.getSource()).getScene().getWindow();
+                window1.setScene(Detailscene);
+                window1.show();
+            }
         } catch (FieldNotCompletedException e) {
             AddAdMessage.setText(e.getMessage());
             titleField.clear();
