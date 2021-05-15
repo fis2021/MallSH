@@ -129,61 +129,6 @@ public class CarController {
         window.show();
 
     }
-    public void goToCreateAd(javafx.event.ActionEvent create) throws IOException {
-        FXMLLoader Loader = new FXMLLoader();
-        Loader.setLocation(getClass().getClassLoader().getResource("create_ad.fxml"));
-        Parent viewCreateAd = Loader.load();
-        Scene createAdscene = new Scene(viewCreateAd, 650, 450);
-        Stage window = (Stage) ((Node) create.getSource()).getScene().getWindow();
-        window.setScene(createAdscene);
-        window.show();
-    }
-    public void goToDeleteAd(javafx.event.ActionEvent delete) throws IOException {
-        FXMLLoader Loader = new FXMLLoader();
-        Loader.setLocation(getClass().getClassLoader().getResource("delete_ad.fxml"));
-        Parent viewCreateAd = Loader.load();
-        Scene deleteAdscene = new Scene(viewCreateAd, 650, 450);
-        Stage window = (Stage) ((Node) delete.getSource()).getScene().getWindow();
-        window.setScene(deleteAdscene);
-        window.show();
-    }
-    public void goToMyList(javafx.event.ActionEvent event) throws IOException {
-        FXMLLoader Loader = new FXMLLoader();
-        Loader.setLocation(getClass().getClassLoader().getResource("my_ads.fxml"));
-        Parent viewCreateAd = Loader.load();
-        Scene createAdscene = new Scene(viewCreateAd, 650, 450);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(createAdscene);
-        window.show();
-    }
-
-    public void goToSearch(javafx.event.ActionEvent login) throws IOException {
-        FXMLLoader Loader = new FXMLLoader();
-        Loader.setLocation(getClass().getClassLoader().getResource("search_ad.fxml"));
-        Parent viewSearch = Loader.load();
-        Scene Searchscene = new Scene(viewSearch, 650, 450);
-        Stage window = (Stage) ((Node) login.getSource()).getScene().getWindow();
-        window.setScene(Searchscene);
-        window.show();
-    }
-    public void goToListFeedback(javafx.event.ActionEvent login) throws IOException {
-        FXMLLoader Loader = new FXMLLoader();
-        Loader.setLocation(getClass().getClassLoader().getResource("feedback_list.fxml"));
-        Parent viewSearch = Loader.load();
-        Scene Searchscene = new Scene(viewSearch, 650, 450);
-        Stage window = (Stage) ((Node) login.getSource()).getScene().getWindow();
-        window.setScene(Searchscene);
-        window.show();
-    }
-    public void goToListFavorite(javafx.event.ActionEvent event) throws IOException {
-        FXMLLoader Loader = new FXMLLoader();
-        Loader.setLocation(getClass().getClassLoader().getResource("favorite_list.fxml"));
-        Parent viewSearch = Loader.load();
-        Scene Searchscene = new Scene(viewSearch, 650, 450);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(Searchscene);
-        window.show();
-    }
     @FXML
     public void goToHomePage(javafx.event.ActionEvent event) throws IOException {
         FXMLLoader Loader = new FXMLLoader();

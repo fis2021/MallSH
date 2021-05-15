@@ -29,11 +29,6 @@
                         <Image url="@logo.png" />
                     </image>
                 </ImageView>
-                <Button layoutX="6.0" layoutY="232.0" mnemonicParsing="false" onAction="#goToCreateAd" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Create Ad" textFill="DARKSLATEGRAY">
-                    <font>
-                        <Font name="Times New Roman" size="14.0" />
-                    </font>
-                </Button>
                 <Button id="logout" layoutX="6.0" layoutY="414.0" mnemonicParsing="false" onAction="#goBackToLogin" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Log Out" textFill="DARKSLATEGRAY">
                     <font>
                         <Font name="Times New Roman" size="14.0" />
@@ -44,21 +39,6 @@
                     <font>
                         <Font name="Times New Roman" size="12.0" />
                     </font></Text>
-                <Button layoutX="6.0" layoutY="269.0" mnemonicParsing="false" onAction="#goToDeleteAd" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Delete Ad" textFill="DARKSLATEGRAY">
-                    <font>
-                        <Font name="Times New Roman" size="14.0" />
-                    </font>
-                </Button>
-                <Button layoutX="6.0" layoutY="306.0" mnemonicParsing="false" onAction="#goToSearch" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Search by Title" textFill="DARKSLATEGRAY">
-                    <font>
-                        <Font name="Times New Roman" size="14.0" />
-                    </font>
-                </Button>
-                <Button id="feedback" layoutX="6.0" layoutY="343.0" mnemonicParsing="false" onAction="#goToListFeedback" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="Feedback" textFill="DARKSLATEGRAY">
-                    <font>
-                        <Font name="Times New Roman" size="14.0" />
-                    </font>
-                </Button>
                 <Button id="homee" layoutX="6.0" layoutY="379.0" mnemonicParsing="false" onAction="#goToHomePage" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="homepage-button" stylesheets="@buttonstyle.css" text="HomePage" textFill="DARKSLATEGRAY">
                     <font>
                         <Font name="Times New Roman" size="14.0" />
@@ -84,18 +64,8 @@
         <ListView fx:id="title" layoutX="182.0" layoutY="158.0" prefHeight="275.0" prefWidth="103.0" />
         <ListView fx:id="price" layoutX="283.0" layoutY="158.0" prefHeight="275.0" prefWidth="69.0" />
         <ListView fx:id="nume" layoutX="453.0" layoutY="158.0" prefHeight="275.0" prefWidth="97.0" />
-        <Button id="buttonMyList" layoutX="469.0" layoutY="35.0" mnemonicParsing="false" onAction="#goToMyList" prefHeight="27.0" prefWidth="69.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="addphoto-button" stylesheets="@buttonstyle.css" text="MyList" textFill="DARKSLATEGRAY">
-            <font>
-                <Font name="Times New Roman" size="14.0" />
-            </font>
-        </Button>
 
         <ListView fx:id="phone" layoutX="551.0" layoutY="158.0" prefHeight="275.0" prefWidth="83.0" />
-        <Button id="buttonfavoritelist" layoutX="359.0" layoutY="35.0" mnemonicParsing="false" onAction="#goToListFavorite" prefHeight="29.0" prefWidth="97.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="addphoto-button" stylesheets="@buttonstyle.css" text="FavoriteList" textFill="DARKSLATEGRAY">
-            <font>
-                <Font name="Times New Roman" size="14.0" />
-            </font>
-        </Button>
         <Text fill="DARKSLATEGRAY" layoutX="182.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" textAlignment="CENTER" wrappingWidth="115.0">
             <font>
                 <Font name="Times New Roman" size="22.0" />

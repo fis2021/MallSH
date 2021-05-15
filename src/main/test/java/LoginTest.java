@@ -25,6 +25,10 @@ import static org.testfx.assertions.api.Assertions.assertThat;
 
 @ExtendWith(ApplicationExtension.class)
 class LoginTest {
+    @AfterAll
+    static void afterAll() throws TimeoutException {
+        FxToolkit.cleanupStages();
+    }
 
     @AfterEach
     void tearDown() {

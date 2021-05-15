@@ -45,12 +45,12 @@
                 </Button>
             </children>
         </HBox>
-        <TextField fx:id="titleField" layoutX="147.0" layoutY="97.0" prefHeight="45.0" prefWidth="494.0" promptText="*Title" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+        <TextField id="titleCreate" fx:id="titleField" layoutX="147.0" layoutY="97.0" prefHeight="45.0" prefWidth="494.0" promptText="*Title" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
             <font>
                 <Font name="Times New Roman" size="23.0" />
             </font>
         </TextField>
-        <Button layoutX="549.0" layoutY="389.0" onAction="#handleCreateAdAction" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Create ad" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
+        <Button id="createADDD" layoutX="549.0" layoutY="389.0" onAction="#handleCreateAdAction" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 2px 2px 2px 2px;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Create ad" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
             <font>
                 <Font name="Times New Roman" size="16.0" />
             </font>
@@ -71,27 +71,27 @@
                 <Font name="Times New Roman" size="9.0" />
             </font>
         </Button>
-        <Button layoutX="14.0" layoutY="389.0" onAction="#goBackToHomepage" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Back" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
+        <Button id="homepageCreate" layoutX="14.0" layoutY="389.0" onAction="#goBackToHomepage" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #2F4F4F;" styleClass="register-button" stylesheets="@buttonstyle.css" text="Back" textAlignment="CENTER" textFill="DARKSLATEGRAY" textOverrun="CLIP">
             <font>
                 <Font name="Times New Roman" size="16.0" />
             </font>
         </Button>
         <HBox prefHeight="100.0" prefWidth="200.0" />
-        <CheckBox fx:id="appliancesBox" layoutX="169.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleCheckBoxAction" prefHeight="17.0" prefWidth="97.0" text="Appliances" />
-        <CheckBox fx:id="clothesBox" layoutX="288.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleCheckBoxAction" prefHeight="17.0" prefWidth="85.0" text="Clothes" />
+        <CheckBox id="makeAppl" fx:id="appliancesBox" layoutX="169.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleCheckBoxAction" prefHeight="17.0" prefWidth="97.0" text="Appliances" />
+        <CheckBox id="makeClt" fx:id="clothesBox" layoutX="288.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleCheckBoxAction" prefHeight="17.0" prefWidth="85.0" text="Clothes" />
         <CheckBox fx:id="carsBox" layoutX="392.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleCheckBoxAction" prefHeight="17.0" prefWidth="73.0" text="Cars" />
         <CheckBox fx:id="furnitureBox" layoutX="487.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleCheckBoxAction" prefHeight="17.0" prefWidth="97.0" text="Furniture" />
       <HBox prefHeight="100.0" prefWidth="200.0" />
-      <TextField fx:id="priceField" layoutX="156.0" layoutY="251.0" prefHeight="28.0" prefWidth="134.0" promptText="*Price" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+      <TextField id="priceCreate" fx:id="priceField" layoutX="156.0" layoutY="251.0" prefHeight="28.0" prefWidth="134.0" promptText="*Price" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="descriptionField" layoutX="156.0" layoutY="284.0" prefHeight="77.0" prefWidth="487.0" promptText="*Description" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
+      <TextField id="descriptionCreate" fx:id="descriptionField" layoutX="156.0" layoutY="284.0" prefHeight="77.0" prefWidth="487.0" promptText="*Description" style="-fx-background-color: transparent; -fx-border-color: #2F4F4F; -fx-border-width: 0px 0px 2px 0px;">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </TextField>
-      <Text fx:id="AddAdMessage" fill="#ff0000a8" layoutX="147.0" layoutY="385.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="313.0" />
+      <Text id="createMessage" fx:id="AddAdMessage" fill="#ff0000a8" layoutX="147.0" layoutY="385.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="313.0" />
     </children>
 </AnchorPane>
