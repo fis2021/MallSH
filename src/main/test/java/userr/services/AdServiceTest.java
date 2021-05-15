@@ -5,6 +5,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import userr.controllers.LoginController;
 import userr.exceptions.*;
 import userr.model.Ad;
 import userr.model.User;
@@ -81,6 +82,15 @@ class AdServiceTest {
 
     @Test
     @DisplayName("Username have to match if you add an ad")
+    void testCheckUsernameMatch1(){
+        assertThrows(WrongUsernameException.class,()->{
+            AdService.addAd("5","500","fridge","description",true,false,false,false,"abc","dragos1",true);
+            AdService.checkUsernameMatch1("notDragos1");
+        });
+    }
+
+    @Test
+    @DisplayName("Username have to match if you add an ad")
     void testCheckTitleMatch() throws UsernameAlreadyExistsException, FieldNotCompletedException, WeakPasswordException, PasswordConfirmationException, UsernameDoesNotExistsException, WrongPasswordException {
         UserService.addUser("dragos1","Dragos1!","Dragos1!","a","a","a","a","a");
         UserService.loginUser("dragos1","Dragos1!");
@@ -89,6 +99,18 @@ class AdServiceTest {
             AdService.checkTitleMatch("notFridge");
         });
     }
+
+    @Test
+    @DisplayName("Username have to match if you add an ad")
+    void testCheckTitleMatch1() throws UsernameAlreadyExistsException, FieldNotCompletedException, WeakPasswordException, PasswordConfirmationException, UsernameDoesNotExistsException, WrongPasswordException {
+        UserService.addUser("dragos1","Dragos1!","Dragos1!","a","a","a","a","a");
+        UserService.loginUser("dragos1","Dragos1!");
+        assertThrows(TitleDoesNotMatchException.class, () -> {
+            AdService.addAd("5", "500", "fridge", "description", true, false, false, false, "abc", "dragos1", true);
+            AdService.checkTitleMatch1("notFridge","dragos1");
+        });
+    }
+
     @Test
     @DisplayName("All fields have to be completed when adding an ad")
     void testFieldsCompleted() throws FieldNotCompletedException{
@@ -98,12 +120,13 @@ class AdServiceTest {
     }
 
     @Test
-    @DisplayName("All fields have to be completed for validation when deleting an ad")
+    @DisplayName("All fields have to be completed when adding an ad")
     void testFieldsCompleted1() throws FieldNotCompletedException{
         assertThrows(FieldNotCompletedException.class, () -> {
-            AdService.checkAllFieldCompleted("", "");
+            AdService.checkAllFieldCompleted1("", "");
         });
     }
+
 
     @Test
     @DisplayName("Check if it is my ad")
@@ -117,5 +140,26 @@ class AdServiceTest {
       assertThat(AdService.getAllAds()).size().isEqualTo(1);
       Ad ad = AdService.getAllAds().get(0);
       AdService.checkIfMyAd(ad,user.getUsername());
+    }
+
+    @Test
+    @DisplayName("Check if details match")
+    void testDetailsAd() throws FieldNotCompletedException, TitleDoesNotMatchException, WrongUsernameException, DuplicatedAdException {
+        AdService.addAd("1", "300", "telefon", "jaf",true,false,false,false,null,"dragos1",false);
+        AdService.detailsAd("telefon","dragos1");
+    }
+
+    @Test
+    @DisplayName("Check if add is deleted")
+    void testDeleteAd() throws FieldNotCompletedException, DuplicatedAdException, WrongUsernameException, TitleDoesNotMatchException, UsernameAlreadyExistsException, WeakPasswordException, PasswordConfirmationException, UsernameDoesNotExistsException, WrongPasswordException {
+        UserService.addUser("dragos1","Dragos1!","Dragos1!","a","a","a","a","a");
+        UserService.loginUser("dragos1","Dragos1!");
+        LoginController.setLoggedUsername("dragos1");
+        AdService.addAd("5", "500", "fridge", "Description", true, false, false, false, "abc", "dragos1", false);
+        LoginController.getLoggedUsername();
+        assertThat(AdService.getAllAds()).size().isEqualTo(1);
+        String logged = UserService.getAllUsers().get(0).getUsername();
+        AdService.deleteAd("fridge",logged);
+        assertThat(AdService.getAllAds()).size().isEqualTo(0);
     }
 }

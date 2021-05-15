@@ -83,6 +83,11 @@ public class LoginController {
     }
     public static String getLoggedUsername(){return loggedUsername;}
 
+    public static void setLoggedUsername(String logg)
+    {
+        loggedUsername = logg;
+    }
+
     public void minimizeWindow(javafx.event.ActionEvent min) {
         Stage window = (Stage) ((Node) min.getSource()).getScene().getWindow();
         window.setIconified(true);
