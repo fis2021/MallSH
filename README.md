@@ -1,4 +1,4 @@
-<img src="resources/logo.png" />
+![](https://github.com/fis2021/MallSH/blob/MSH-84_README/src/main/resources/logo.png)
 
 Our application wants to help people and proposes a simple and intuitive interface for people who are at the beginning of digitization and need something simpler than complicated shops with dozens of hidden interfaces.
 
@@ -32,8 +32,9 @@ Start the application using the command:
 
 You should see an application starting, that looks like this:
 
-<img src="resources/login.png" />
+![](https://github.com/fis2021/MallSH/blob/MSH-84_README/src/main/resources/login.png)
 
+https://github.com/fis2021/MallSH/blob/MSH-84_README/src/main/resources/login.png
 
 You can login if you already have an account, or you can create one by pressing the button "Register".
 
