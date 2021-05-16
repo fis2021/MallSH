@@ -34,8 +34,6 @@ You should see an application starting, that looks like this:
 
 ![](https://github.com/fis2021/MallSH/blob/MSH-84_README/src/main/resources/login.png)
 
-https://github.com/fis2021/MallSH/blob/MSH-84_README/src/main/resources/login.png
-
 You can login if you already have an account, or you can create one by pressing the button "Register".
 
 After login, you are redirected to the HomePage, and from now everything is so intuitive. Have fun browsing!
